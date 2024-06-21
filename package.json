@@ -1,0 +1,67 @@
+{
+  "name": "nuxt-webhooks-validator",
+  "version": "1.0.0",
+  "description": "Easy validate webhooks in Nuxt",
+  "keywords": [
+    "nuxt",
+    "webhooks",
+    "validator"
+  ],
+  "repository": "Yizack/nuxt-webhooks-validator",
+  "homepage": "https://github.com/Yizack/nuxt-webhooks-validator",
+  "author": {
+    "name": "Yizack Rangel",
+    "email": "yizackr@gmail.com",
+    "url": "https://yizack.com/"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "lint": "eslint --fix",
+    "test": "vitest run --reporter=verbose",
+    "test:watch": "vitest watch"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.12.2",
+    "defu": "^6.1.4",
+    "unenv": "^1.9.0"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "^1.3.3",
+    "@nuxt/eslint-config": "^0.3.13",
+    "@nuxt/module-builder": "^0.8.0",
+    "@nuxt/schema": "^3.12.2",
+    "@nuxt/test-utils": "^3.13.1",
+    "@types/node": "^20.14.7",
+    "changelogen": "^0.5.5",
+    "eslint": "^9.5.0",
+    "nuxt": "^3.12.2",
+    "vitest": "^1.6.0",
+    "vue-tsc": "^2.0.21"
+  },
+  "packageManager": "pnpm@9.4.0",
+  "changelog": {
+    "repo": {
+      "repo": "Yizack/nuxt-webhooks-validator",
+      "provider": "github",
+      "domain": "github.com"
+    }
+  }
+}
