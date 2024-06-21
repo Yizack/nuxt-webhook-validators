@@ -1,3 +1,5 @@
+![webhook-validators](https://github.com/Yizack/nuxt-webhook-validators/assets/16264115/56cded71-46b2-4895-8732-484ab6df5181)
+
 # Nuxt Webhook Validators
 
 [![npm version][npm-version-src]][npm-version-href]
