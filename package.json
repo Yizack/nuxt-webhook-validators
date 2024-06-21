@@ -36,6 +36,7 @@
     "release": "npm run lint && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint --fix",
     "test": "vitest run --reporter=verbose",
+    "test:types": "vue-tsc --noEmit",
     "test:watch": "vitest watch"
   },
   "dependencies": {
