@@ -1,5 +1,8 @@
 export default defineNuxtConfig({
-  modules: ['../src/module'],
+  compatibilityDate: '2024-06-17',
+  modules: [
+    'nuxt-webhook-validators',
+  ],
   runtimeConfig: {
     webhook: {
       github: {
@@ -19,4 +22,7 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
+  imports: {
+    autoImport: true,
+  },
 })
