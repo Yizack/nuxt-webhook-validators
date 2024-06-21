@@ -1,3 +1,5 @@
+import { subtle } from 'node:crypto'
+import { Buffer } from 'node:buffer'
 import { type H3Event, getHeaders, readRawBody } from 'h3'
 import { useRuntimeConfig } from '#imports'
 
@@ -29,8 +31,8 @@ export const isValidTwitchWebhook = async (event: H3Event): Promise<boolean> => 
   const encoder = new TextEncoder()
   const algorithm = { name: 'HMAC', hash: 'SHA-256' }
 
-  const key = await crypto.subtle.importKey('raw', encoder.encode(secretKey), algorithm, false, ['sign'])
-  const hmac = await crypto.subtle.sign(algorithm.name, key, encoder.encode(message))
+  const key = await subtle.importKey('raw', encoder.encode(secretKey), algorithm, false, ['sign'])
+  const hmac = await subtle.sign(algorithm.name, key, encoder.encode(message))
 
   const computedHash = HMAC_PREFIX + Buffer.from(hmac).toString('hex')
 
