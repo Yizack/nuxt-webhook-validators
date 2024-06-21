@@ -70,7 +70,7 @@ NUXT_WEBHOOKS_<PROVIDER>_<REQUIRED_PROPERTY> = ""
 Go to [playground/.env.example](./playground/.env.example) or [playground/nuxt.config.ts](./playground/nuxt.config.ts) to see a list of all the available properties needed for each provider.
 
 
-Supported webhook validators:
+#### Supported webhook validators:
 
 - Paddle
 - PayPal
