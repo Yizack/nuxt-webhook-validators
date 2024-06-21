@@ -1,6 +1,9 @@
 export default defineNuxtConfig({
   modules: ['../src/module'],
   webhook: {
+    github: {
+      secretKey: '',
+    },
     paddle: {
       webhookId: '',
     },

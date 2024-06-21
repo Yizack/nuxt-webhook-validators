@@ -19,6 +19,10 @@ export default defineNuxtModule<ModuleOptions>({
     const runtimeConfig = nuxt.options.runtimeConfig
     // Webhook settings
     runtimeConfig.webhook = defu(runtimeConfig.webhook, {})
+    // Github Webhook
+    runtimeConfig.webhook.github = defu(runtimeConfig.webhook.github, {
+      secretKey: '',
+    })
     // Paddle Webhook
     runtimeConfig.webhook.paddle = defu(runtimeConfig.webhook.paddle, {
       webhookId: '',
