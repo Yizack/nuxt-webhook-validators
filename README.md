@@ -9,10 +9,13 @@
 
 A simple nuxt module that works on the edge to easily validate incoming webhooks from different services.
 
+- [✨ Release Notes](CHANGELOG.md)
+
 ## Features
 
-- [Server utils](#server-utils)
-
+- 4 [Webhook validators](#supported-webhook-validators)
+- Works on the edge
+- Exposed [Server utils](#server-utils)
 
 ## Requirements
 
@@ -135,7 +138,7 @@ npm run release
 [npm-downloads-href]: https://npmjs.com/package/nuxt-webhook-validators
 
 [license-src]: https://img.shields.io/npm/l/nuxt-webhook-validators.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/nuxt-webhook-validators
+[license-href]: LICENSE
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
