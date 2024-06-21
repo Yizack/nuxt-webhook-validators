@@ -16,7 +16,7 @@ export const isValidPaypalWebhook = async (event: H3Event): Promise<boolean> => 
 
   if (!body || !headers) return false
 
-  const { clientId, secretKey, webhookId } = useRuntimeConfig(event).webhooks.paypal
+  const { clientId, secretKey, webhookId } = useRuntimeConfig(event).webhook.paypal
   const basicAuth = btoa(`${clientId}:${secretKey}`)
   const endpoint = `${baseAPI}/notifications/verify-webhook-signature`
 

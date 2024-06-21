@@ -1,5 +1,5 @@
 export default defineEventHandler(async (event) => {
-  const isValidWebhook = await webhooks.isValidTwitchWebhook(event)
+  const isValidWebhook = await isValidTwitchWebhook(event)
 
   if (!isValidWebhook) throw createError({ status: 400, message: 'Invalid webhook' })
 

@@ -30,7 +30,7 @@ const extractHeaders = (header: string) => {
 export const isValidPaddleWebhook = async (event: H3Event): Promise<boolean> => {
   const headers = getHeaders(event)
   const body = await readRawBody(event)
-  const { webhookId } = useRuntimeConfig(event).webhooks.paddle
+  const { webhookId } = useRuntimeConfig(event).webhook.paddle
 
   const paddleSignature = headers['paddle-signature']
 

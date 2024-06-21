@@ -1,4 +1,4 @@
-# Nuxt Webhooks Validator
+# Nuxt Webhook Validators
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -20,10 +20,10 @@ This means that you cannot use this module with `nuxt generate`.
 
 ## Quick Setup
 
-1. Add nuxt-webhooks-validator in your Nuxt project
+1. Add nuxt-webhook-validators in your Nuxt project
 
 ```
-pnpm add nuxt-webhooks-validator
+pnpm add nuxt-webhook-validators
 ```
 
 2. Add the module in your `nuxt.config.ts`
@@ -31,7 +31,7 @@ pnpm add nuxt-webhooks-validator
 ```js
 export default defineNuxtConfig({
   modules: [
-    'nuxt-webhooks-validator'
+    'nuxt-webhook-validators'
   ],
 })
 ```
@@ -43,7 +43,7 @@ The validator helpers are auto-imported in your `server/` directory.
 
 ### Webhook Validators
 
-All validator helpers are exposed from the `webhooks` global variable and can be used in your server routes or API routes.
+All validator helpers are exposed globally and can be used in your server API routes.
 
 The helpers return a boolean value indicating if the webhook request is valid or not.
 
@@ -52,7 +52,7 @@ The config can be defined directly from the `runtimeConfig` in your `nuxt.config
 ```js
 export default defineNuxtConfig({
   runtimeConfig: {
-    webhooks: {
+    webhook: {
       <provider>: {
         <requiredProps>: '',
       }
@@ -64,7 +64,7 @@ export default defineNuxtConfig({
 It can also be set using environment variables:
 
 ```sh
-NUXT_WEBHOOKS_<PROVIDER>_<REQUIRED_PROPERTY> = ""
+NUXT_WEBHOOK_<PROVIDER>_<REQUIRED_PROPERTY> = ""
 ```
 
 Go to [playground/.env.example](./playground/.env.example) or [playground/nuxt.config.ts](./playground/nuxt.config.ts) to see a list of all the available properties needed for each provider.
@@ -82,11 +82,11 @@ You can add your favorite webhook validator by creating a new file in  [src/runt
 
 Validate a Paddle webhook in a server API route.
 
-`~/server/api/webhooks.post.ts`
+`~/server/api/webhooks/paddle.post.ts`
 
 ```js
 export default defineEventHandler(async (event) => {
-  const isValidWebhook = await webhooks.isValidPaddleWebhook(event)
+  const isValidWebhook = await isValidPaddleWebhook(event)
 
   if (!isValidWebhook) {
     throw createError({ status: 400, message: 'Invalid webhook' })
@@ -125,14 +125,14 @@ npm run release
 ```
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/nuxt-webhooks-validator/latest.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-version-href]: https://npmjs.com/package/nuxt-webhooks-validator
+[npm-version-src]: https://img.shields.io/npm/v/nuxt-webhook-validators/latest.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-version-href]: https://npmjs.com/package/nuxt-webhook-validators
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-webhooks-validator.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npmjs.com/package/nuxt-webhooks-validator
+[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-webhook-validators.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-downloads-href]: https://npmjs.com/package/nuxt-webhook-validators
 
-[license-src]: https://img.shields.io/npm/l/nuxt-webhooks-validator.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/nuxt-webhooks-validator
+[license-src]: https://img.shields.io/npm/l/nuxt-webhook-validators.svg?style=flat&colorA=020420&colorB=00DC82
+[license-href]: https://npmjs.com/package/nuxt-webhook-validators
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
 [nuxt-href]: https://nuxt.com

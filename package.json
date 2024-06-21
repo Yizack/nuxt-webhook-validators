@@ -1,14 +1,14 @@
 {
-  "name": "nuxt-webhooks-validator",
-  "version": "1.0.2",
+  "name": "nuxt-webhook-validators",
+  "version": "1.0.0",
   "description": "A simple nuxt module that works on the edge to easily validate incoming webhooks from different services.",
   "keywords": [
     "nuxt",
-    "webhooks",
+    "webhook",
     "validator"
   ],
-  "repository": "Yizack/nuxt-webhooks-validator",
-  "homepage": "https://github.com/Yizack/nuxt-webhooks-validator",
+  "repository": "Yizack/nuxt-webhook-validators",
+  "homepage": "https://github.com/Yizack/nuxt-webhook-validators",
   "author": {
     "name": "Yizack Rangel",
     "email": "yizackr@gmail.com",
@@ -58,7 +58,7 @@
   "packageManager": "pnpm@9.4.0",
   "changelog": {
     "repo": {
-      "repo": "Yizack/nuxt-webhooks-validator",
+      "repo": "Yizack/nuxt-webhook-validators",
       "provider": "github",
       "domain": "github.com"
     }

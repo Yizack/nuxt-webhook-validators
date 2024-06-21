@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   modules: ['../src/module'],
-  webhooks: {
+  webhook: {
     paddle: {
       webhookId: '',
     },

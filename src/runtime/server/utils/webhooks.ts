@@ -1,9 +1,3 @@
-import { isValidPaddleWebhook } from '../lib/validators/paddle'
-import { isValidPaypalWebhook } from '../lib/validators/paypal'
-import { isValidTwitchWebhook } from '../lib/validators/twitch'
-
-export const webhooks = {
-  isValidPaddleWebhook,
-  isValidPaypalWebhook,
-  isValidTwitchWebhook,
-}
+export { isValidPaddleWebhook } from '../lib/validators/paddle'
+export { isValidPaypalWebhook } from '../lib/validators/paypal'
+export { isValidTwitchWebhook } from '../lib/validators/twitch'

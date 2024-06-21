@@ -5,8 +5,8 @@ export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'webhooks-validator',
-    configKey: 'webhooks',
+    name: 'webhook-validators',
+    configKey: 'webhook',
     compatibility: {
       nuxt: '>=3.0.0',
     },
@@ -18,19 +18,19 @@ export default defineNuxtModule<ModuleOptions>({
 
     const runtimeConfig = nuxt.options.runtimeConfig
     // Webhook settings
-    runtimeConfig.webhooks = defu(runtimeConfig.webhooks, {})
+    runtimeConfig.webhook = defu(runtimeConfig.webhook, {})
     // Paddle Webhook
-    runtimeConfig.webhooks.paddle = defu(runtimeConfig.webhooks.paddle, {
+    runtimeConfig.webhook.paddle = defu(runtimeConfig.webhook.paddle, {
       webhookId: '',
     })
     // Paypal Webhook
-    runtimeConfig.webhooks.paypal = defu(runtimeConfig.webhooks.paypal, {
+    runtimeConfig.webhook.paypal = defu(runtimeConfig.webhook.paypal, {
       clientId: '',
       secretKey: '',
       webhookId: '',
     })
     // Twitch Webhook
-    runtimeConfig.webhooks.twitch = defu(runtimeConfig.webhooks.twitch, {
+    runtimeConfig.webhook.twitch = defu(runtimeConfig.webhook.twitch, {
       secretKey: '',
     })
   },

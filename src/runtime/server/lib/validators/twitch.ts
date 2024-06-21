@@ -13,7 +13,7 @@ import { useRuntimeConfig } from '#imports'
 export const isValidTwitchWebhook = async (event: H3Event): Promise<boolean> => {
   const headers = getHeaders(event)
   const body = await readRawBody(event)
-  const { secretKey } = useRuntimeConfig(event).webhooks.twitch
+  const { secretKey } = useRuntimeConfig(event).webhook.twitch
 
   const TWITCH_MESSAGE_ID = 'Twitch-Eventsub-Message-Id'.toLowerCase()
   const TWITCH_MESSAGE_TIMESTAMP = 'Twitch-Eventsub-Message-Timestamp'.toLowerCase()
