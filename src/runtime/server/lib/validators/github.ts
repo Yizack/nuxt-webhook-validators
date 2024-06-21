@@ -3,6 +3,13 @@ import { Buffer } from 'node:buffer'
 import { type H3Event, getHeaders, readRawBody } from 'h3'
 import { useRuntimeConfig } from '#imports'
 
+/**
+ * Validates Github webhooks on the Edge \
+ * Inspired by: https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries#javascript-example
+ * @async
+ * @param event H3Event
+ * @returns {boolean} `true` if the webhook is valid, `false` otherwise
+ */
 export const isValidGithubWebhook = async (event: H3Event): Promise<boolean> => {
   const headers = getHeaders(event)
   const body = await readRawBody(event)
