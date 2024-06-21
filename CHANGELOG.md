@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.2
+
+[compare changes](https://github.com/Yizack/nuxt-webhooks-validator/compare/v1.0.1...v1.0.2)
+
+### 🏡 Chore
+
+- Import node:crypto and node:buffer twitch ([d93ec0f](https://github.com/Yizack/nuxt-webhooks-validator/commit/d93ec0f))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v1.0.1
 
 
