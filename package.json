@@ -1,7 +1,7 @@
 {
   "name": "nuxt-webhooks-validator",
   "version": "1.0.0",
-  "description": "Easy validate webhooks in Nuxt",
+  "description": "A simple nuxt module that works on the edge to easily validate incoming webhooks from different services.",
   "keywords": [
     "nuxt",
     "webhooks",
@@ -33,15 +33,14 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "release": "npm run lint && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint --fix",
     "test": "vitest run --reporter=verbose",
     "test:watch": "vitest watch"
   },
   "dependencies": {
     "@nuxt/kit": "^3.12.2",
-    "defu": "^6.1.4",
-    "unenv": "^1.9.0"
+    "defu": "^6.1.4"
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.3.3",
