@@ -5,11 +5,6 @@ import { setup, $fetch } from '@nuxt/test-utils'
 describe('ssr', async () => {
   await setup({
     rootDir: fileURLToPath(new URL('./fixtures/basic', import.meta.url)),
-    nuxtConfig: {
-      runtimeConfig: {
-
-      },
-    },
   })
 
   it('renders the index page', async () => {
