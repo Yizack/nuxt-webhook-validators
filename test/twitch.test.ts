@@ -4,12 +4,12 @@ import { Buffer } from 'node:buffer'
 import { describe, it, expect } from 'vitest'
 import { setup, $fetch } from '@nuxt/test-utils'
 
-describe('github', async () => {
+describe('twitch', async () => {
   await setup({
     rootDir: fileURLToPath(new URL('./fixtures/basic', import.meta.url)),
   })
 
-  it('valid GitHub webhook', async () => {
+  it('valid Twitch webhook', async () => {
     const timestamp = Math.floor(Date.now() / 1000)
     const body = 'testBody'
     const messageId = 'testMessageId'
