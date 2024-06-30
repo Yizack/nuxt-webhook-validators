@@ -4,6 +4,7 @@ import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
 import { useRuntimeConfig } from '#imports'
 
 const DEFAULT_TOLERANCE = 300
+const STRIPE_SIGNATURE = 'Stripe-Signature'.toLowerCase()
 
 const extractHeaders = (header: string) => {
   const parts = header.split(',')
@@ -32,7 +33,6 @@ export const isValidStripeWebhook = async (event: H3Event): Promise<boolean> => 
   const body = await readRawBody(event)
   const { secretKey } = useRuntimeConfig(event).webhook.stripe
 
-  const STRIPE_SIGNATURE = 'Stripe-Signature'.toLowerCase()
   const stripeSignature = headers[STRIPE_SIGNATURE]
 
   if (!body || !stripeSignature) return false

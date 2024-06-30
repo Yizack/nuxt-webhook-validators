@@ -4,6 +4,7 @@ import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
 import { useRuntimeConfig } from '#imports'
 
 const MAX_VALID_TIME_DIFFERENCE = 5
+const PADDLE_SIGNATURE = 'paddle-signature'
 
 const extractHeaders = (header: string) => {
   const parts = header.split(';')
@@ -32,7 +33,7 @@ export const isValidPaddleWebhook = async (event: H3Event): Promise<boolean> => 
   const body = await readRawBody(event)
   const { webhookId } = useRuntimeConfig(event).webhook.paddle
 
-  const paddleSignature = headers['paddle-signature']
+  const paddleSignature = headers[PADDLE_SIGNATURE]
 
   if (!body || !paddleSignature) return false
 

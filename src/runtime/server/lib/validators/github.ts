@@ -3,6 +3,8 @@ import { Buffer } from 'node:buffer'
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
 import { useRuntimeConfig } from '#imports'
 
+const GITHUB_SIGNATURE = 'X-Hub-Signature-256'.toLowerCase()
+
 /**
  * Validates Github webhooks on the Edge \
  * Inspired by: https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries#javascript-example
@@ -15,7 +17,6 @@ export const isValidGithubWebhook = async (event: H3Event): Promise<boolean> => 
   const body = await readRawBody(event)
   const { secretKey } = useRuntimeConfig(event).webhook.github
 
-  const GITHUB_SIGNATURE = 'X-Hub-Signature-256'.toLowerCase()
   const header = headers[GITHUB_SIGNATURE]
 
   if (!body || !header) return false
