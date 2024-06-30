@@ -16,6 +16,9 @@ export default defineNuxtConfig({
         secretKey: '',
         webhookId: '',
       },
+      stripe: {
+        secretKey: '',
+      },
       twitch: {
         secretKey: '',
       },

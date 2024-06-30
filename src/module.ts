@@ -33,6 +33,10 @@ export default defineNuxtModule<ModuleOptions>({
       secretKey: '',
       webhookId: '',
     })
+    // Stripe Webhook
+    runtimeConfig.webhook.stripe = defu(runtimeConfig.webhook.stripe, {
+      secretKey: '',
+    })
     // Twitch Webhook
     runtimeConfig.webhook.twitch = defu(runtimeConfig.webhook.twitch, {
       secretKey: '',
