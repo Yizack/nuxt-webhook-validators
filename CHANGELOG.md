@@ -1,6 +1,42 @@
 # Changelog
 
 
+## v0.0.3
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.0.2...v0.0.3)
+
+### 🚀 Enhancements
+
+- Add Stripe webhook validator ([6a0b494](https://github.com/Yizack/nuxt-webhook-validators/commit/6a0b494))
+
+### 📖 Documentation
+
+- Add more readme info ([e1be01b](https://github.com/Yizack/nuxt-webhook-validators/commit/e1be01b))
+- Consistent `createError` ([c0bcac1](https://github.com/Yizack/nuxt-webhook-validators/commit/c0bcac1))
+
+### 🏡 Chore
+
+- Ci actions ([8bcdb41](https://github.com/Yizack/nuxt-webhook-validators/commit/8bcdb41))
+- Add update configs ([3da2b98](https://github.com/Yizack/nuxt-webhook-validators/commit/3da2b98))
+- Move playground into workspace ([2d0c343](https://github.com/Yizack/nuxt-webhook-validators/commit/2d0c343))
+- Regenerate lock ([d083fdc](https://github.com/Yizack/nuxt-webhook-validators/commit/d083fdc))
+- Update deps ([4a37a4e](https://github.com/Yizack/nuxt-webhook-validators/commit/4a37a4e))
+- Use recommended `statusCode` and `statusMessage` on playground error ([a49152a](https://github.com/Yizack/nuxt-webhook-validators/commit/a49152a))
+- Fix wrong test name ([0140183](https://github.com/Yizack/nuxt-webhook-validators/commit/0140183))
+- Update vue-tsc ([08ea51b](https://github.com/Yizack/nuxt-webhook-validators/commit/08ea51b))
+- Use getRequestHeaders instead of alias ([d3c670c](https://github.com/Yizack/nuxt-webhook-validators/commit/d3c670c))
+- Move constants outside function ([b018b78](https://github.com/Yizack/nuxt-webhook-validators/commit/b018b78))
+
+### ✅ Tests
+
+- Add basic test ([3febbec](https://github.com/Yizack/nuxt-webhook-validators/commit/3febbec))
+- Fix basic test ([687a364](https://github.com/Yizack/nuxt-webhook-validators/commit/687a364))
+- Add some tests ([fff9828](https://github.com/Yizack/nuxt-webhook-validators/commit/fff9828))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v0.0.2
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.0.1...v0.0.2)
