@@ -1,4 +1,4 @@
-import { type H3Event, getHeaders, readBody } from 'h3'
+import { type H3Event, getRequestHeaders, readBody } from 'h3'
 import { useRuntimeConfig } from '#imports'
 
 const baseAPI = import.meta.dev ? 'https://api-m.sandbox.paypal.com/v1' : 'https://api-m.paypal.com/v1'
@@ -11,7 +11,7 @@ const baseAPI = import.meta.dev ? 'https://api-m.sandbox.paypal.com/v1' : 'https
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
 export const isValidPaypalWebhook = async (event: H3Event): Promise<boolean> => {
-  const headers = getHeaders(event)
+  const headers = getRequestHeaders(event)
   const body = await readBody(event)
 
   if (!body || !headers) return false

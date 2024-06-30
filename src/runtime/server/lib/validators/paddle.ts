@@ -1,6 +1,6 @@
 import { subtle } from 'node:crypto'
 import { Buffer } from 'node:buffer'
-import { type H3Event, getHeaders, readRawBody } from 'h3'
+import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
 import { useRuntimeConfig } from '#imports'
 
 const MAX_VALID_TIME_DIFFERENCE = 5
@@ -28,7 +28,7 @@ const extractHeaders = (header: string) => {
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
 export const isValidPaddleWebhook = async (event: H3Event): Promise<boolean> => {
-  const headers = getHeaders(event)
+  const headers = getRequestHeaders(event)
   const body = await readRawBody(event)
   const { webhookId } = useRuntimeConfig(event).webhook.paddle
 
