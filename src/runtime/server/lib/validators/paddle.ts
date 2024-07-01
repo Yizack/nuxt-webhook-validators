@@ -1,6 +1,7 @@
 import { subtle } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
+import { encoder, hmacAlgorithm } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const MAX_VALID_TIME_DIFFERENCE = 5
@@ -44,11 +45,9 @@ export const isValidPaddleWebhook = async (event: H3Event): Promise<boolean> => 
   if (new Date().getTime() > new Date((webhookTimestamp + MAX_VALID_TIME_DIFFERENCE) * 1000).getTime()) return false
 
   const payloadWithTime = `${webhookTimestamp}:${body}`
-  const encoder = new TextEncoder()
-  const algorithm = { name: 'HMAC', hash: 'SHA-256' }
 
-  const key = await subtle.importKey('raw', encoder.encode(webhookId), algorithm, false, ['sign'])
-  const hmac = await subtle.sign(algorithm.name, key, encoder.encode(payloadWithTime))
+  const key = await subtle.importKey('raw', encoder.encode(webhookId), hmacAlgorithm, false, ['sign'])
+  const hmac = await subtle.sign(hmacAlgorithm.name, key, encoder.encode(payloadWithTime))
 
   const computedHash = Buffer.from(hmac).toString('hex')
 

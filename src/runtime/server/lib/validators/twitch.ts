@@ -1,6 +1,7 @@
 import { subtle } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
+import { encoder, hmacAlgorithm } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const TWITCH_MESSAGE_ID = 'Twitch-Eventsub-Message-Id'.toLowerCase()
@@ -28,11 +29,8 @@ export const isValidTwitchWebhook = async (event: H3Event): Promise<boolean> => 
 
   const message = message_id + message_timestamp + body
 
-  const encoder = new TextEncoder()
-  const algorithm = { name: 'HMAC', hash: 'SHA-256' }
-
-  const key = await subtle.importKey('raw', encoder.encode(secretKey), algorithm, false, ['sign'])
-  const hmac = await subtle.sign(algorithm.name, key, encoder.encode(message))
+  const key = await subtle.importKey('raw', encoder.encode(secretKey), hmacAlgorithm, false, ['sign'])
+  const hmac = await subtle.sign(hmacAlgorithm.name, key, encoder.encode(message))
 
   const computedHash = HMAC_PREFIX + Buffer.from(hmac).toString('hex')
 
