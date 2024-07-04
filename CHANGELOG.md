@@ -1,6 +1,35 @@
 # Changelog
 
 
+## v0.0.4
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.0.3...v0.0.4)
+
+### 🚀 Enhancements
+
+- Add `nuxthub` webhook validator ([fbe5945](https://github.com/Yizack/nuxt-webhook-validators/commit/fbe5945))
+
+### 📖 Documentation
+
+- Updates ([4a51084](https://github.com/Yizack/nuxt-webhook-validators/commit/4a51084))
+- Add nuxt modules badge ([6f39479](https://github.com/Yizack/nuxt-webhook-validators/commit/6f39479))
+
+### 🏡 Chore
+
+- Add helpers ([406cecd](https://github.com/Yizack/nuxt-webhook-validators/commit/406cecd))
+- Import helpers ([01e4ff5](https://github.com/Yizack/nuxt-webhook-validators/commit/01e4ff5))
+- Update ci code ([cb1d472](https://github.com/Yizack/nuxt-webhook-validators/commit/cb1d472))
+- Remove api routes from fixtures, use playground as server dir ([5b60e59](https://github.com/Yizack/nuxt-webhook-validators/commit/5b60e59))
+- Capitalize some names ([d9e1c1a](https://github.com/Yizack/nuxt-webhook-validators/commit/d9e1c1a))
+
+### ✅ Tests
+
+- Simulate webhook events in one server start ([2c93261](https://github.com/Yizack/nuxt-webhook-validators/commit/2c93261))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v0.0.3
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.0.2...v0.0.3)
