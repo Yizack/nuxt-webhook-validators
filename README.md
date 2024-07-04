@@ -6,6 +6,7 @@
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
+[![Modules][modules-src]][modules-href]
 
 A simple nuxt module that works on the edge to easily validate incoming webhooks from different services.
 
@@ -147,3 +148,6 @@ npm run release
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
+
+[modules-src]: https://img.shields.io/badge/Modules-020420?logo=nuxt.js
+[modules-href]: https://nuxt.com/modules/webhook-validators
