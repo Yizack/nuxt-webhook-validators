@@ -13,7 +13,7 @@ A simple nuxt module that works on the edge to easily validate incoming webhooks
 
 ## Features
 
-- 5 [Webhook validators](#supported-webhook-validators)
+- 6 [Webhook validators](#supported-webhook-validators)
 - Works on the edge
 - Exposed [Server utils](#server-utils)
 
@@ -127,6 +127,9 @@ npm run lint
 # Run Vitest
 npm run test
 npm run test:watch
+
+# Run typecheck
+npm run test:types
 
 # Release new version
 npm run release
