@@ -4,7 +4,7 @@ import { useRuntimeConfig } from '#imports'
 const baseAPI = import.meta.dev ? 'https://api-m.sandbox.paypal.com/v1' : 'https://api-m.paypal.com/v1'
 
 /**
- * Validates Paypal webhooks on the Edge \
+ * Validates PayPal webhooks on the Edge \
  * Inspired by: https://developer.paypal.com/docs/api/webhooks/v1/#verify-webhook-signature_post
  * @async
  * @param event H3Event

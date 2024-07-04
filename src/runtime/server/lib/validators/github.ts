@@ -7,7 +7,7 @@ import { useRuntimeConfig } from '#imports'
 const GITHUB_SIGNATURE = 'X-Hub-Signature-256'.toLowerCase()
 
 /**
- * Validates Github webhooks on the Edge \
+ * Validates GitHub webhooks on the Edge \
  * Inspired by: https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries#javascript-example
  * @async
  * @param event H3Event

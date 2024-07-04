@@ -19,7 +19,7 @@ export default defineNuxtModule<ModuleOptions>({
     const runtimeConfig = nuxt.options.runtimeConfig
     // Webhook settings
     runtimeConfig.webhook = defu(runtimeConfig.webhook, {})
-    // Github Webhook
+    // GitHub Webhook
     runtimeConfig.webhook.github = defu(runtimeConfig.webhook.github, {
       secretKey: '',
     })
@@ -31,7 +31,7 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.paddle = defu(runtimeConfig.webhook.paddle, {
       webhookId: '',
     })
-    // Paypal Webhook
+    // PayPal Webhook
     runtimeConfig.webhook.paypal = defu(runtimeConfig.webhook.paypal, {
       clientId: '',
       secretKey: '',
