@@ -3,6 +3,8 @@ import { describe, it, expect } from 'vitest'
 import { $fetch, setup } from '@nuxt/test-utils'
 import * as events from './events'
 
+const validWebhook = { isValidWebhook: true }
+
 await setup({ rootDir: fileURLToPath(new URL('./fixtures/basic', import.meta.url)) })
 
 describe('ssr', () => {
@@ -15,21 +17,26 @@ describe('ssr', () => {
 describe('webhooks', () => {
   it('valid GitHub webhook', async () => {
     const response = await events.simulateGithubEvent()
-    expect(response).toStrictEqual({ isValidWebhook: true })
+    expect(response).toStrictEqual(validWebhook)
+  })
+
+  it('valid NuxtHub webhook', async () => {
+    const response = await events.simulateNuxthubEvent()
+    expect(response).toStrictEqual(validWebhook)
   })
 
   it('valid Paddle webhook', async () => {
     const response = await events.simulatePaddleEvent()
-    expect(response).toStrictEqual({ isValidWebhook: true })
+    expect(response).toStrictEqual(validWebhook)
   })
 
   it('valid Stripe webhook', async () => {
     const response = await events.simulateStripeEvent()
-    expect(response).toStrictEqual({ isValidWebhook: true })
+    expect(response).toStrictEqual(validWebhook)
   })
 
   it('valid Twitch webhook', async () => {
     const response = await events.simulateTwitchEvent()
-    expect(response).toStrictEqual({ isValidWebhook: true })
+    expect(response).toStrictEqual(validWebhook)
   })
 })

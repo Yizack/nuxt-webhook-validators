@@ -8,6 +8,9 @@ export default defineNuxtConfig({
       github: {
         secretKey: '',
       },
+      nuxthub: {
+        secretKey: '',
+      },
       paddle: {
         webhookId: '',
       },
