@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   serverDir: '../../../playground/server',
   runtimeConfig: {
     webhook: {
+      discord: {
+        publicKey: 'fcf4594ff55a5898a7e7ce541b93dc8ce618c7a4fa96ab7efd1ac2890571345c',
+      },
       github: {
         secretKey: 'testGitHubSecretKey',
       },
