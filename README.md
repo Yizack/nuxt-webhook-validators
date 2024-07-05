@@ -78,6 +78,7 @@ Go to [playground/.env.example](./playground/.env.example) or [playground/nuxt.c
 
 #### Supported webhook validators:
 
+- Discord
 - GitHub
 - NuxtHub
 - Paddle
