@@ -23,18 +23,9 @@ export const isValidDiscordWebhook = async (event: H3Event): Promise<boolean> =>
   const webhookTimestamp = headers[DISCORD_SIGNATURE_TIMESTAMP]
 
   if (!body || !webhookSignature || !webhookTimestamp) return false
-
-  const buffer = new Uint8Array(64);
-  const match = webhookSignature.match(/.{2}/g) as RegExpMatchArray;
-  
-  for (let i = 0; i < match.length; i++) {
-    buffer[i] = parseInt(match[i], 16);
-  }
-
-  const signature = buffer.buffer
   
   const key = await subtle.importKey('raw', Buffer.from(publicKey, 'hex'), ed25519Algorithm, true, ['verify'])
-  const isValid = await subtle.verify(ed25519Algorithm.name, key, signature, encoder.encode(webhookTimestamp + body))
+  const isValid = await subtle.verify(ed25519Algorithm.name, key, Buffer.from(webhookSignature, 'hex'), encoder.encode(webhookTimestamp + body))
 
   return isValid
 }
