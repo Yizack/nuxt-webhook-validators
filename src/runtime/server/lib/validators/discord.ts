@@ -9,7 +9,7 @@ const DISCORD_SIGNATURE_TIMESTAMP = 'x-signature-timestamp';
 
 /**
  * Validates Discord webhooks on the Edge \
- * Info: 
+ * @see https://discord.com/developers/docs/interactions/overview#setting-up-an-endpoint-validating-security-request-headers
  * @async
  * @param event H3Event
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
