@@ -1,11 +1,11 @@
 import { subtle } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
+import { encoder, ed25519Algorithm } from '../helpers'
 import { useRuntimeConfig } from '#imports'
-import { encoder, ed25519Algorithm } from '../helpers';
 
-const DISCORD_SIGNATURE = 'x-signature-ed25519';
-const DISCORD_SIGNATURE_TIMESTAMP = 'x-signature-timestamp';
+const DISCORD_SIGNATURE = 'x-signature-ed25519'
+const DISCORD_SIGNATURE_TIMESTAMP = 'x-signature-timestamp'
 
 /**
  * Validates Discord webhooks on the Edge \
@@ -23,7 +23,7 @@ export const isValidDiscordWebhook = async (event: H3Event): Promise<boolean> =>
   const webhookTimestamp = headers[DISCORD_SIGNATURE_TIMESTAMP]
 
   if (!body || !webhookSignature || !webhookTimestamp) return false
-  
+
   const key = await subtle.importKey('raw', Buffer.from(publicKey, 'hex'), ed25519Algorithm, true, ['verify'])
   const isValid = await subtle.verify(ed25519Algorithm.name, key, Buffer.from(webhookSignature, 'hex'), encoder.encode(webhookTimestamp + body))
 
