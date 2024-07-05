@@ -1,3 +1,4 @@
+export { simulateDiscordEvent } from './simulations/discord'
 export { simulateGithubEvent } from './simulations/github'
 export { simulatePaddleEvent } from './simulations/paddle'
 export { simulateTwitchEvent } from './simulations/twitch'

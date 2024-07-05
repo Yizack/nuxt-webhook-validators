@@ -15,6 +15,11 @@ describe('ssr', () => {
 })
 
 describe('webhooks', () => {
+  it('valid Discord webhook', async () => {
+    const response = await events.simulateDiscordEvent()
+    expect(response).toStrictEqual(validWebhook)
+  })
+
   it('valid GitHub webhook', async () => {
     const response = await events.simulateGithubEvent()
     expect(response).toStrictEqual(validWebhook)
