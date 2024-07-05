@@ -24,8 +24,11 @@ export const isValidDiscordWebhook = async (event: H3Event): Promise<boolean> =>
 
   if (!body || !webhookSignature || !webhookTimestamp) return false
 
+  const bytes = encoder.encode(webhookSignature);
+  const signature = new Uint8Array(bytes.buffer);
+  
   const key = await subtle.importKey('raw', Buffer.from(publicKey, 'hex'), ed25519Algorithm, true, ['verify'])
-  const isValid = await subtle.verify(ed25519Algorithm.name, key, Buffer.from(webhookSignature, 'base64'), encoder.encode(webhookTimestamp + body))
+  const isValid = await subtle.verify(ed25519Algorithm.name, key, signature, encoder.encode(webhookTimestamp + body))
 
   return isValid
 }
