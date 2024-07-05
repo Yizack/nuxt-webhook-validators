@@ -45,5 +45,9 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.twitch = defu(runtimeConfig.webhook.twitch, {
       secretKey: '',
     })
+    // Discord Webhook
+    runtimeConfig.webhook.discord = defu(runtimeConfig.webhook.discord, {
+      publicKey: '',
+    })
   },
 })
