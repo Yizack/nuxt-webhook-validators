@@ -25,6 +25,9 @@ export default defineNuxtConfig({
       twitch: {
         secretKey: '',
       },
+      discord: {
+        publicKey: '',
+      },
     },
   },
   devtools: { enabled: true },
