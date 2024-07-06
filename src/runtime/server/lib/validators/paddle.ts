@@ -23,9 +23,8 @@ const extractHeaders = (header: string) => {
 }
 
 /**
- * Validates Paddle webhooks on the Edge \
- * Inspired by: https://github.com/PaddleHQ/paddle-node-sdk/blob/main/src/notifications/helpers/webhooks-validator.ts
- * @async
+ * Validates Paddle webhooks on the Edge
+ * @see {@link https://github.com/PaddleHQ/paddle-node-sdk/blob/main/src/notifications/helpers/webhooks-validator.ts}
  * @param event H3Event
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */

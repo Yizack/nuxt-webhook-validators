@@ -5,9 +5,8 @@ import { useRuntimeConfig } from '#imports'
 const NUXTHUB_SIGNATURE = 'x-nuxthub-signature'
 
 /**
- * Validates NuxtHub webhooks on the Edge \
- * Info: https://hub.nuxt.com/changelog/team-webhooks-env
- * @async
+ * Validates NuxtHub webhooks on the Edge
+ * @see {@link https://hub.nuxt.com/changelog/team-webhooks-env}
  * @param event H3Event
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */

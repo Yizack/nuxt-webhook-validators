@@ -10,9 +10,8 @@ const TWITCH_MESSAGE_SIGNATURE = 'Twitch-Eventsub-Message-Signature'.toLowerCase
 const HMAC_PREFIX = 'sha256='
 
 /**
- * Validates Twitch webhooks on the Edge \
- * Inspired by: https://dev.twitch.tv/docs/eventsub/handling-webhook-events/#verifying-the-event-message
- * @async
+ * Validates Twitch webhooks on the Edge
+ * @see {@link https://dev.twitch.tv/docs/eventsub/handling-webhook-events/#verifying-the-event-message}
  * @param event H3Event
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */

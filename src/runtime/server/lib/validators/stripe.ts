@@ -23,9 +23,8 @@ const extractHeaders = (header: string) => {
 }
 
 /**
- * Validates Stripe webhooks on the Edge \
- * Inspired by: https://docs.stripe.com/webhooks?verify=verify-manually
- * @async
+ * Validates Stripe webhooks on the Edge
+ * @see {@link https://docs.stripe.com/webhooks?verify=verify-manually}
  * @param event H3Event
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
