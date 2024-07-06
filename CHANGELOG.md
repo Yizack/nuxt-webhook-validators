@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.0.5
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.0.4...v0.0.5)
+
+### 🚀 Enhancements
+
+- Add `Discord` webhook validator ([#1](https://github.com/Yizack/nuxt-webhook-validators/pull/1))
+
+### 🏡 Chore
+
+- Update dependencies ([e52e404](https://github.com/Yizack/nuxt-webhook-validators/commit/e52e404))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+- Ahmed Rangel ([@ahmedrangel](http://github.com/ahmedrangel))
+
 ## v0.0.4
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.0.3...v0.0.4)
