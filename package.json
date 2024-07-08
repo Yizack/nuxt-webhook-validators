@@ -33,7 +33,7 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-    "release": "npm run lint && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "release": "npm run lint && npm run prepack && npm run test && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
     "test": "vitest run --reporter=verbose",
     "test:types": "vue-tsc --noEmit",
@@ -54,10 +54,10 @@
     "changelogen": "^0.5.5",
     "eslint": "^9.6.0",
     "nuxt": "^3.12.3",
-    "vitest": "^1.6.0",
+    "vitest": "^2.0.1",
     "vue-tsc": "^2.0.26"
   },
-  "packageManager": "pnpm@9.4.0",
+  "packageManager": "pnpm@9.5.0",
   "changelog": {
     "repo": {
       "repo": "Yizack/nuxt-webhook-validators",
