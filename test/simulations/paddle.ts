@@ -1,9 +1,10 @@
 import { subtle } from 'node:crypto'
 import { $fetch } from '@nuxt/test-utils'
 import { encoder, hmacAlgorithm } from '../../src/runtime/server/lib/helpers'
+import nuxtConfig from '../fixtures/basic/nuxt.config'
 
 const body = 'testBody'
-const webhookId = 'testPaddleWebhookId'
+const webhookId = nuxtConfig.runtimeConfig?.webhook?.paddle?.webhookId
 
 export const simulatePaddleEvent = async () => {
   const timestamp = Math.floor(Date.now() / 1000)

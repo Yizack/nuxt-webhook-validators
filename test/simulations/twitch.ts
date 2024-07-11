@@ -2,10 +2,11 @@ import { subtle } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 import { $fetch } from '@nuxt/test-utils'
 import { encoder, hmacAlgorithm } from '../../src/runtime/server/lib/helpers'
+import nuxtConfig from '../fixtures/basic/nuxt.config'
 
 const body = 'testBody'
 const messageId = 'testMessageId'
-const secretKey = 'testTwitchSecretKey'
+const secretKey = nuxtConfig.runtimeConfig?.webhook?.twitch?.secretKey
 
 export const simulateTwitchEvent = async () => {
   const timestamp = Math.floor(Date.now() / 1000)

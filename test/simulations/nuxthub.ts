@@ -1,8 +1,9 @@
 import { sha256 } from 'ohash'
 import { $fetch } from '@nuxt/test-utils'
+import nuxtConfig from '../fixtures/basic/nuxt.config'
 
 const body = 'testBody'
-const secretKey = 'testNuxtHubSecretKey'
+const secretKey = nuxtConfig.runtimeConfig?.webhook?.nuxthub?.secretKey
 
 export const simulateNuxthubEvent = async () => {
   const validSignature = sha256(body + secretKey)
