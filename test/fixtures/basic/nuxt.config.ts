@@ -11,6 +11,9 @@ export default defineNuxtConfig({
       github: {
         secretKey: 'testGitHubSecretKey',
       },
+      heroku: {
+        secretKey: 'testHerokuSecretKey',
+      },
       nuxthub: {
         secretKey: 'testNuxtHubSecretKey',
       },

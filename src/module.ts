@@ -19,8 +19,16 @@ export default defineNuxtModule<ModuleOptions>({
     const runtimeConfig = nuxt.options.runtimeConfig
     // Webhook settings
     runtimeConfig.webhook = defu(runtimeConfig.webhook, {})
+    // Discord Webhook
+    runtimeConfig.webhook.discord = defu(runtimeConfig.webhook.discord, {
+      publicKey: '',
+    })
     // GitHub Webhook
     runtimeConfig.webhook.github = defu(runtimeConfig.webhook.github, {
+      secretKey: '',
+    })
+    // Heroku Webhook
+    runtimeConfig.webhook.heroku = defu(runtimeConfig.webhook.heroku, {
       secretKey: '',
     })
     // NuxtHub Webhook
@@ -44,10 +52,6 @@ export default defineNuxtModule<ModuleOptions>({
     // Twitch Webhook
     runtimeConfig.webhook.twitch = defu(runtimeConfig.webhook.twitch, {
       secretKey: '',
-    })
-    // Discord Webhook
-    runtimeConfig.webhook.discord = defu(runtimeConfig.webhook.discord, {
-      publicKey: '',
     })
   },
 })

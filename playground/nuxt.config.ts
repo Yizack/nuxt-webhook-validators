@@ -5,7 +5,13 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     webhook: {
+      discord: {
+        publicKey: '',
+      },
       github: {
+        secretKey: '',
+      },
+      heroku: {
         secretKey: '',
       },
       nuxthub: {
@@ -24,9 +30,6 @@ export default defineNuxtConfig({
       },
       twitch: {
         secretKey: '',
-      },
-      discord: {
-        publicKey: '',
       },
     },
   },

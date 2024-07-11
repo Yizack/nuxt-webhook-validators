@@ -25,6 +25,11 @@ describe('webhooks', () => {
     expect(response).toStrictEqual(validWebhook)
   })
 
+  it('valid Heroku webhook', async () => {
+    const response = await events.simulateHerokuEvent()
+    expect(response).toStrictEqual(validWebhook)
+  })
+
   it('valid NuxtHub webhook', async () => {
     const response = await events.simulateNuxthubEvent()
     expect(response).toStrictEqual(validWebhook)
