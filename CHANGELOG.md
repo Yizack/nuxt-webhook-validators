@@ -1,6 +1,30 @@
 # Changelog
 
 
+## v0.0.6
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.0.5...v0.0.6)
+
+### 🚀 Enhancements
+
+- Add `Heroku` webhook validator ([ccad636](https://github.com/Yizack/nuxt-webhook-validators/commit/ccad636))
+
+### 📖 Documentation
+
+- Add jsdoc `@see` and remove `@async` tag ([c940cf4](https://github.com/Yizack/nuxt-webhook-validators/commit/c940cf4))
+
+### 🏡 Chore
+
+- Updates ([47e5dbf](https://github.com/Yizack/nuxt-webhook-validators/commit/47e5dbf))
+
+### ✅ Tests
+
+- Import nuxt config webhook secrets from fixture ([474a8be](https://github.com/Yizack/nuxt-webhook-validators/commit/474a8be))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v0.0.5
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.0.4...v0.0.5)
