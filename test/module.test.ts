@@ -40,6 +40,11 @@ describe('webhooks', () => {
     expect(response).toStrictEqual(validWebhook)
   })
 
+  it('valid Paypal webhook', async () => {
+    const response = await events.simulatePaypalEvent()
+    expect(response).toStrictEqual(validWebhook)
+  })
+
   it('valid Stripe webhook', async () => {
     const response = await events.simulateStripeEvent()
     expect(response).toStrictEqual(validWebhook)
