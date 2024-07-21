@@ -1,5 +1,5 @@
 import { subtle } from 'node:crypto'
-import { $fetch } from '@nuxt/test-utils'
+import { $fetch } from '@nuxt/test-utils/e2e'
 import { encoder, hmacAlgorithm } from '../../src/runtime/server/lib/helpers'
 import nuxtConfig from '../fixtures/basic/nuxt.config'
 

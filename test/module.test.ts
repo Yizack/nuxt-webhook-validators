@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { describe, it, expect } from 'vitest'
-import { $fetch, setup } from '@nuxt/test-utils'
+import { $fetch, setup } from '@nuxt/test-utils/e2e'
 import * as events from './events'
 
 const validWebhook = { isValidWebhook: true }

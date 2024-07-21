@@ -1,5 +1,5 @@
 import { sha256 } from 'ohash'
-import { $fetch } from '@nuxt/test-utils'
+import { $fetch } from '@nuxt/test-utils/e2e'
 import nuxtConfig from '../fixtures/basic/nuxt.config'
 
 const body = 'testBody'

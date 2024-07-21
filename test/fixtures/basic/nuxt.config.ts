@@ -1,9 +1,9 @@
 import { defineNuxtConfig } from 'nuxt/config'
+import myModule from '../../../src/module'
 
 export default defineNuxtConfig({
-  modules: [
-    '../../../src/module',
-  ],
+  future: { compatibilityVersion: 4 },
+  modules: [myModule],
   serverDir: '../../../playground/server',
   runtimeConfig: {
     webhook: {

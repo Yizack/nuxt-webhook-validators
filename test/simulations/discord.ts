@@ -1,5 +1,5 @@
 import { subtle } from 'node:crypto'
-import { $fetch } from '@nuxt/test-utils'
+import { $fetch } from '@nuxt/test-utils/e2e'
 import { encoder, ed25519Algorithm } from '../../src/runtime/server/lib/helpers'
 
 const body = { type: 0, data: 'testBody' }
