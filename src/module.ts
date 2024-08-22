@@ -1,6 +1,7 @@
 import { defineNuxtModule, createResolver, addServerImportsDir } from '@nuxt/kit'
 import { defu } from 'defu'
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({
