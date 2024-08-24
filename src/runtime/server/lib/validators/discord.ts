@@ -1,7 +1,5 @@
-import { subtle } from 'node:crypto'
-import { Buffer } from 'node:buffer'
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { encoder, ed25519Algorithm } from '../helpers'
+import { verifyPublicSignature, ed25519Algorithm } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const DISCORD_SIGNATURE = 'x-signature-ed25519'
@@ -24,11 +22,7 @@ export const isValidDiscordWebhook = async (event: H3Event): Promise<boolean> =>
   if (!body || !webhookSignature || !webhookTimestamp) return false
 
   const payloadWithTime = webhookTimestamp + body
-  const publicKeyBuffer = Buffer.from(publicKey, 'hex')
-  const webhookSignatureBuffer = Buffer.from(webhookSignature, 'hex')
 
-  const key = await subtle.importKey('raw', publicKeyBuffer, ed25519Algorithm, true, ['verify'])
-  const isValid = await subtle.verify(ed25519Algorithm.name, key, webhookSignatureBuffer, encoder.encode(payloadWithTime))
-
+  const isValid = await verifyPublicSignature(publicKey, ed25519Algorithm, payloadWithTime, webhookSignature)
   return isValid
 }

@@ -1,7 +1,5 @@
-import { subtle } from 'node:crypto'
-import { Buffer } from 'node:buffer'
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { encoder, hmacAlgorithm } from '../helpers'
+import { computeSignature, hmacAlgorithm } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const GITHUB_SIGNATURE = 'X-Hub-Signature-256'.toLowerCase()
@@ -24,11 +22,6 @@ export const isValidGithubWebhook = async (event: H3Event): Promise<boolean> => 
   const parts = header.split('=')
   const webhookSignature = parts[1]
 
-  const extractable = false
-  const key = await subtle.importKey('raw', encoder.encode(secretKey), hmacAlgorithm, extractable, ['sign'])
-  const hmac = await subtle.sign(hmacAlgorithm.name, key, encoder.encode(body))
-
-  const computedHash = Buffer.from(hmac).toString('hex')
-
+  const computedHash = await computeSignature(secretKey, hmacAlgorithm, body)
   return computedHash === webhookSignature
 }

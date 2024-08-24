@@ -1,7 +1,5 @@
-import { subtle } from 'node:crypto'
-import { Buffer } from 'node:buffer'
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { encoder, hmacAlgorithm } from '../helpers'
+import { computeSignature, hmacAlgorithm } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const HEROKU_HMAC = 'Heroku-Webhook-Hmac-SHA256'.toLowerCase()
@@ -23,10 +21,6 @@ export const isValidHerokuWebhook = async (event: H3Event): Promise<boolean> => 
 
   const webhookSignature = header
 
-  const key = await subtle.importKey('raw', encoder.encode(secretKey), hmacAlgorithm, false, ['sign'])
-  const hmac = await subtle.sign(hmacAlgorithm.name, key, encoder.encode(body))
-
-  const computedBase64 = Buffer.from(hmac).toString('base64')
-
-  return computedBase64 === webhookSignature
+  const computedHash = await computeSignature(secretKey, hmacAlgorithm, body, { encoding: 'base64' })
+  return computedHash === webhookSignature
 }
