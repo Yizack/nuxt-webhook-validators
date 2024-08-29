@@ -7,7 +7,10 @@
     "webhook",
     "validator"
   ],
-  "repository": "Yizack/nuxt-webhook-validators",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yizack/nuxt-webhook-validators.git"
+  },
   "homepage": "https://github.com/Yizack/nuxt-webhook-validators",
   "author": {
     "name": "Yizack Rangel",
