@@ -1,6 +1,35 @@
 # Changelog
 
 
+## v0.1.0
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.0.6...v0.1.0)
+
+### 🚀 Enhancements
+
+- Add `Meta` webhook validator ([84b2a91](https://github.com/Yizack/nuxt-webhook-validators/commit/84b2a91))
+
+### 💅 Refactors
+
+- Simplify signature compute and verify ([1d4d3f3](https://github.com/Yizack/nuxt-webhook-validators/commit/1d4d3f3))
+
+### 🏡 Chore
+
+- Update dependencies ([2092724](https://github.com/Yizack/nuxt-webhook-validators/commit/2092724))
+- Lint ignore empty module options interface ([f89c0bc](https://github.com/Yizack/nuxt-webhook-validators/commit/f89c0bc))
+- Update eslint ([074fe4d](https://github.com/Yizack/nuxt-webhook-validators/commit/074fe4d))
+- Fix npm repo property ([c57e978](https://github.com/Yizack/nuxt-webhook-validators/commit/c57e978))
+- Update dependencies ([4ea7961](https://github.com/Yizack/nuxt-webhook-validators/commit/4ea7961))
+
+### ✅ Tests
+
+- Stub paypal response ([d332e04](https://github.com/Yizack/nuxt-webhook-validators/commit/d332e04))
+- Import from e2e, nuxt 4 compat ([3a252d4](https://github.com/Yizack/nuxt-webhook-validators/commit/3a252d4))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v0.0.6
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.0.5...v0.0.6)
