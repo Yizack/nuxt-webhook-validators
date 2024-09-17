@@ -16,6 +16,9 @@ export default defineNuxtConfig({
       heroku: {
         secretKey: 'testHerokuSecretKey',
       },
+      meta: {
+        appSecret: 'testMetaAppSecret',
+      },
       nuxthub: {
         secretKey: 'testNuxtHubSecretKey',
       },

@@ -14,6 +14,9 @@ export default defineNuxtConfig({
       heroku: {
         secretKey: '',
       },
+      meta: {
+        appSecret: '',
+      },
       nuxthub: {
         secretKey: '',
       },

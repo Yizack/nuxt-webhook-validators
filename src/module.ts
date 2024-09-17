@@ -32,6 +32,10 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.heroku = defu(runtimeConfig.webhook.heroku, {
       secretKey: '',
     })
+    // Meta Webhook
+    runtimeConfig.webhook.meta = defu(runtimeConfig.webhook.meta, {
+      appSecret: '',
+    })
     // NuxtHub Webhook
     runtimeConfig.webhook.nuxthub = defu(runtimeConfig.webhook.nuxthub, {
       secretKey: '',

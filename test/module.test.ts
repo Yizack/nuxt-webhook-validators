@@ -30,6 +30,11 @@ describe('webhooks', () => {
     expect(response).toStrictEqual(validWebhook)
   })
 
+  it('valid Meta webhook', async () => {
+    const response = await events.simulateMetaEvent()
+    expect(response).toStrictEqual(validWebhook)
+  })
+
   it('valid NuxtHub webhook', async () => {
     const response = await events.simulateNuxthubEvent()
     expect(response).toStrictEqual(validWebhook)

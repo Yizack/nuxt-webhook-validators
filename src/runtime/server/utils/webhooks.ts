@@ -1,6 +1,7 @@
 export { isValidDiscordWebhook } from '../lib/validators/discord'
 export { isValidGithubWebhook } from '../lib/validators/github'
 export { isValidHerokuWebhook } from '../lib/validators/heroku'
+export { isValidMetaWebhook } from '../lib/validators/meta'
 export { isValidNuxthubWebhook } from '../lib/validators/nuxthub'
 export { isValidPaddleWebhook } from '../lib/validators/paddle'
 export { isValidPaypalWebhook } from '../lib/validators/paypal'
