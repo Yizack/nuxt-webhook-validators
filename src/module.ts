@@ -15,7 +15,7 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {},
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url)
-    addServerImportsDir(resolve('./runtime/server/utils'))
+    addServerImportsDir(resolve('./runtime/server/lib/validators'))
 
     const runtimeConfig = nuxt.options.runtimeConfig
     // Webhook settings
