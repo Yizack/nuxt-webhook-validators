@@ -1,7 +1,7 @@
 import { subtle } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 import { $fetch } from '@nuxt/test-utils/e2e'
-import { encoder, hmacAlgorithm } from '../../src/runtime/server/lib/helpers'
+import { encoder, HMAC_SHA256 } from '../../src/runtime/server/lib/helpers'
 import nuxtConfig from '../fixtures/basic/nuxt.config'
 
 const body = 'testBody'
@@ -11,8 +11,8 @@ const secretKey = nuxtConfig.runtimeConfig?.webhook?.twitch?.secretKey
 export const simulateTwitchEvent = async () => {
   const timestamp = Math.floor(Date.now() / 1000)
   const message = messageId + timestamp + body
-  const signature = await subtle.importKey('raw', encoder.encode(secretKey), hmacAlgorithm, false, ['sign'])
-  const hmac = await subtle.sign(hmacAlgorithm.name, signature, encoder.encode(message))
+  const signature = await subtle.importKey('raw', encoder.encode(secretKey), HMAC_SHA256, false, ['sign'])
+  const hmac = await subtle.sign(HMAC_SHA256.name, signature, encoder.encode(message))
   const computedHash = Buffer.from(hmac).toString('hex')
   const validSignature = `sha256=${computedHash}`
 

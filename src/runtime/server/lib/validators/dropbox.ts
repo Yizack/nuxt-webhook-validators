@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, hmacAlgorithm } from '../helpers'
+import { computeSignature, HMAC_SHA256 } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const DROPBOX_SIGNATURE = 'X-Dropbox-Signature'.toLowerCase()
@@ -19,6 +19,6 @@ export const isValidDropboxWebhook = async (event: H3Event): Promise<boolean> =>
 
   if (!body || !webhookSignature) return false
 
-  const computedHash = await computeSignature(appSecret, hmacAlgorithm, body)
+  const computedHash = await computeSignature(appSecret, HMAC_SHA256, body)
   return computedHash === webhookSignature
 }

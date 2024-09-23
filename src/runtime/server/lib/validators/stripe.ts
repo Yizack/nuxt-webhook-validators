@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, hmacAlgorithm } from '../helpers'
+import { computeSignature, HMAC_SHA256 } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const DEFAULT_TOLERANCE = 300
@@ -43,6 +43,6 @@ export const isValidStripeWebhook = async (event: H3Event): Promise<boolean> => 
 
   const payloadWithTime = `${webhookTimestamp}.${body}`
 
-  const computedHash = await computeSignature(secretKey, hmacAlgorithm, payloadWithTime)
+  const computedHash = await computeSignature(secretKey, HMAC_SHA256, payloadWithTime)
   return computedHash === webhookSignature
 }

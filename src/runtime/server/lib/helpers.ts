@@ -1,9 +1,11 @@
 import { subtle, type webcrypto } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 
+/* Algorithms */
+export const HMAC_SHA256 = { name: 'HMAC', hash: 'SHA-256' }
+export const ED25519 = { name: 'Ed25519', namedCurve: 'Ed25519' }
+
 export const encoder = new TextEncoder()
-export const hmacAlgorithm = { name: 'HMAC', hash: 'SHA-256' }
-export const ed25519Algorithm = { name: 'Ed25519', namedCurve: 'Ed25519' }
 
 export const computeSignature = async (
   secretKey: string,

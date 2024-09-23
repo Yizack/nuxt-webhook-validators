@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, hmacAlgorithm } from '../helpers'
+import { computeSignature, HMAC_SHA256 } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const GITHUB_SIGNATURE = 'X-Hub-Signature-256'.toLowerCase()
@@ -22,6 +22,6 @@ export const isValidGithubWebhook = async (event: H3Event): Promise<boolean> => 
   const parts = header.split('=')
   const webhookSignature = parts[1]
 
-  const computedHash = await computeSignature(secretKey, hmacAlgorithm, body)
+  const computedHash = await computeSignature(secretKey, HMAC_SHA256, body)
   return computedHash === webhookSignature
 }

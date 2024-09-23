@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, hmacAlgorithm } from '../helpers'
+import { computeSignature, HMAC_SHA256 } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const TWITCH_MESSAGE_ID = 'Twitch-Eventsub-Message-Id'.toLowerCase()
@@ -26,6 +26,6 @@ export const isValidTwitchWebhook = async (event: H3Event): Promise<boolean> => 
 
   const message = message_id + message_timestamp + body
 
-  const computedHash = await computeSignature(secretKey, hmacAlgorithm, message)
+  const computedHash = await computeSignature(secretKey, HMAC_SHA256, message)
   return HMAC_PREFIX + computedHash === message_signature
 }

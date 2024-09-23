@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, hmacAlgorithm } from '../helpers'
+import { computeSignature, HMAC_SHA256 } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const HEROKU_HMAC = 'Heroku-Webhook-Hmac-SHA256'.toLowerCase()
@@ -21,6 +21,6 @@ export const isValidHerokuWebhook = async (event: H3Event): Promise<boolean> => 
 
   const webhookSignature = header
 
-  const computedHash = await computeSignature(secretKey, hmacAlgorithm, body, { encoding: 'base64' })
+  const computedHash = await computeSignature(secretKey, HMAC_SHA256, body, { encoding: 'base64' })
   return computedHash === webhookSignature
 }
