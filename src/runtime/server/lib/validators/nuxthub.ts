@@ -1,5 +1,7 @@
-import { sha256 } from 'ohash'
+import { subtle } from 'node:crypto'
+import { Buffer } from 'node:buffer'
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
+import { encoder, HMAC_SHA256 } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const NUXTHUB_SIGNATURE = 'x-nuxthub-signature'
@@ -20,7 +22,8 @@ export const isValidNuxthubWebhook = async (event: H3Event): Promise<boolean> =>
   if (!body || !webhookSignature) return false
 
   const payload = body + secretKey
-  const signature = sha256(payload)
+  const signatureBuffer = await subtle.digest(HMAC_SHA256.hash, encoder.encode(payload))
+  const signature = Buffer.from(signatureBuffer).toString('hex')
 
   return signature === webhookSignature
 }
