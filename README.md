@@ -29,7 +29,7 @@ This means that you cannot use this module with `nuxt generate`.
 1. Add nuxt-webhook-validators in your Nuxt project
 
 ```
-pnpm add nuxt-webhook-validators
+npx nuxi@latest module add webhook-validators
 ```
 
 2. Add the module in your `nuxt.config.ts`
