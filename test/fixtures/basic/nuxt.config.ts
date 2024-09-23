@@ -10,6 +10,9 @@ export default defineNuxtConfig({
       discord: {
         publicKey: 'fcf4594ff55a5898a7e7ce541b93dc8ce618c7a4fa96ab7efd1ac2890571345c',
       },
+      dropbox: {
+        appSecret: 'testDropboxAppSecret',
+      },
       github: {
         secretKey: 'testGitHubSecretKey',
       },

@@ -20,6 +20,11 @@ describe('webhooks', () => {
     expect(response).toStrictEqual(validWebhook)
   })
 
+  it('valid Dropbox webhook', async () => {
+    const response = await events.simulateDropboxEvent()
+    expect(response).toStrictEqual(validWebhook)
+  })
+
   it('valid GitHub webhook', async () => {
     const response = await events.simulateGithubEvent()
     expect(response).toStrictEqual(validWebhook)
