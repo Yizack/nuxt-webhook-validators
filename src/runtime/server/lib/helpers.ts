@@ -1,4 +1,4 @@
-import { subtle } from 'node:crypto'
+import { subtle, type webcrypto } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 
 export const encoder = new TextEncoder()
@@ -7,7 +7,7 @@ export const ed25519Algorithm = { name: 'Ed25519', namedCurve: 'Ed25519' }
 
 export const computeSignature = async (
   secretKey: string,
-  algorithm: typeof hmacAlgorithm | typeof ed25519Algorithm,
+  algorithm: webcrypto.Algorithm,
   payload: string,
   options?: Partial<{ extractable: boolean, encoding: BufferEncoding }>,
 ) => {
@@ -18,7 +18,7 @@ export const computeSignature = async (
 
 export const verifyPublicSignature = async (
   publicKey: string,
-  algorithm: typeof hmacAlgorithm | typeof ed25519Algorithm,
+  algorithm: webcrypto.Algorithm,
   payload: string,
   signature: string,
   options?: Partial<{ extractable: boolean, encoding: BufferEncoding }>,
