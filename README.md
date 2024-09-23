@@ -93,13 +93,13 @@ You can add your favorite webhook validator by creating a new file in  [src/runt
 
 ## Example
 
-Validate a Paddle webhook in a server API route.
+Validate a GitHub webhook in a server API route.
 
-`~/server/api/webhooks/paddle.post.ts`
+`~/server/api/webhooks/github.post.ts`
 
 ```js
 export default defineEventHandler(async (event) => {
-  const isValidWebhook = await isValidPaddleWebhook(event)
+  const isValidWebhook = await isValidGitHubWebhook(event)
 
   if (!isValidWebhook) {
     throw createError({ statusCode: 401, message: 'Unauthorized: webhook is not valid' })
