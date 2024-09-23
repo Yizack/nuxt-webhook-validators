@@ -1,4 +1,5 @@
 import { subtle } from 'node:crypto'
+import { Buffer } from 'node:buffer'
 import { $fetch } from '@nuxt/test-utils/e2e'
 import { encoder, HMAC_SHA256 } from '../../src/runtime/server/lib/helpers'
 import nuxtConfig from '../fixtures/basic/nuxt.config'
