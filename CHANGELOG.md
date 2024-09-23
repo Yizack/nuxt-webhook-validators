@@ -1,6 +1,36 @@
 # Changelog
 
 
+## v0.1.1
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.0...v0.1.1)
+
+### 🚀 Enhancements
+
+- Add `Dropbox` webhook validator ([46629f3](https://github.com/Yizack/nuxt-webhook-validators/commit/46629f3))
+
+### 💅 Refactors
+
+- Rename algorithm constants ([a9b3cbc](https://github.com/Yizack/nuxt-webhook-validators/commit/a9b3cbc))
+- Remove `ohash` dependency and use `webcrypto` for `NuxtHub` validation ([8180f1c](https://github.com/Yizack/nuxt-webhook-validators/commit/8180f1c))
+
+### 📖 Documentation
+
+- Add missing Meta validator ([1f109b5](https://github.com/Yizack/nuxt-webhook-validators/commit/1f109b5))
+- Use new `nuxi module add` command in installation ([62020b5](https://github.com/Yizack/nuxt-webhook-validators/commit/62020b5))
+
+### 🏡 Chore
+
+- Direct import validators ([dd0a4da](https://github.com/Yizack/nuxt-webhook-validators/commit/dd0a4da))
+- Update dependencies ([ad8f227](https://github.com/Yizack/nuxt-webhook-validators/commit/ad8f227))
+- Update devtools ([a939eb4](https://github.com/Yizack/nuxt-webhook-validators/commit/a939eb4))
+- **types:** Reference `webcrypto.Algorithm` type ([e20f6c8](https://github.com/Yizack/nuxt-webhook-validators/commit/e20f6c8))
+- Add missing buffer import ([9b909e3](https://github.com/Yizack/nuxt-webhook-validators/commit/9b909e3))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v0.1.0
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.0.6...v0.1.0)
