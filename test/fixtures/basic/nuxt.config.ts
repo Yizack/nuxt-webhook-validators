@@ -2,9 +2,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 import myModule from '../../../src/module'
 
 export default defineNuxtConfig({
-  future: { compatibilityVersion: 4 },
   modules: [myModule],
-  serverDir: '../../../playground/server',
   runtimeConfig: {
     webhook: {
       discord: {
@@ -44,4 +42,6 @@ export default defineNuxtConfig({
       },
     },
   },
+  serverDir: '../../../playground/server',
+  future: { compatibilityVersion: 4 },
 })

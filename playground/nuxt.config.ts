@@ -1,8 +1,11 @@
 export default defineNuxtConfig({
-  compatibilityDate: '2024-06-17',
   modules: [
     'nuxt-webhook-validators',
   ],
+  imports: {
+    autoImport: true,
+  },
+  devtools: { enabled: true },
   runtimeConfig: {
     webhook: {
       discord: {
@@ -39,8 +42,5 @@ export default defineNuxtConfig({
       },
     },
   },
-  devtools: { enabled: true },
-  imports: {
-    autoImport: true,
-  },
+  compatibilityDate: '2024-06-17',
 })
