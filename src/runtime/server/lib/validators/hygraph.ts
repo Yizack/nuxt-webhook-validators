@@ -53,7 +53,7 @@ export const isValidHygraphWebhook = async (event: H3Event): Promise<boolean> =>
   if (now - webhookTimestamp > DEFAULT_TOLERANCE) return false
 
   const payload = JSON.stringify({
-    Body: JSON.stringify(body),
+    Body: body,
     EnvironmentName: webhookEnvironmentName,
     TimeStamp: webhookTimestamp,
   })

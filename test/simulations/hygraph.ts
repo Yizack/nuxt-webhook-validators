@@ -12,7 +12,7 @@ export const simulateHygraphEvent = async () => {
   const timestamp = Date.now()
 
   const payload = JSON.stringify({
-    Body: JSON.stringify(body),
+    Body: body,
     EnvironmentName: environmentName,
     TimeStamp: timestamp,
   })
