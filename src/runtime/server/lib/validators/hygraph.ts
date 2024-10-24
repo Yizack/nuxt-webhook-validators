@@ -5,13 +5,28 @@ import { useRuntimeConfig } from '#imports'
 const DEFAULT_TOLERANCE = 300 // 5 minutes tolerance
 const HYGRAPH_SIGNATURE = 'gcms-signature'
 
-function validateSignatureParts(input: string): boolean {
-  // This regex looks for three parts:
-  // 1. sign=<any characters including =, followed by a comma>
-  // 2. env=<any characters except comma, followed by a comma>
-  // 3. t=<any characters except comma>
-  const regex = /^sign=[^,]+=,\s*env=[^,]+,\s*t=[^,]+$/
-  return regex.test(input)
+interface ParsedSignature {
+  sign: string
+  env: string
+  timestamp: number
+}
+
+function parseSignature(signature: string): ParsedSignature | null {
+  const parts = signature.split(', ')
+  if (parts.length !== 3) return null
+
+  const parsed: Partial<ParsedSignature> = {}
+  for (const part of parts) {
+    const [key, ...valueParts] = part.split('=')
+    const value = valueParts.join('=') // Rejoin in case there are multiple '=' in the value
+
+    if (key === 'sign') parsed.sign = value
+    else if (key === 'env') parsed.env = value
+    else if (key === 't') parsed.timestamp = Number.parseInt(value, 10)
+  }
+
+  if (!parsed.sign || !parsed.env || !parsed.timestamp) return null
+  return parsed as ParsedSignature
 }
 
 /**
@@ -26,15 +41,14 @@ export const isValidHygraphWebhook = async (event: H3Event): Promise<boolean> =>
   const { secretKey } = useRuntimeConfig(event).webhook.hygraph
   const hygraphSignature = headers[HYGRAPH_SIGNATURE]
 
-  if (!body || !hygraphSignature || !validateSignatureParts(hygraphSignature)) return false
+  if (!body || !hygraphSignature) return false
 
-  const [rawSign, rawEnv, rawTimestamp] = hygraphSignature.split(', ')
+  const parsedSignature = parseSignature(hygraphSignature)
+  if (!parsedSignature) return false
 
-  const webhookSignature = rawSign.replace('sign=', '')
-  const webhookEnvironmentName = rawEnv.replace('env=', '')
-  const webhookTimestamp = Number.parseInt(rawTimestamp.replace('t=', ''))
+  const { sign: webhookSignature, env: webhookEnvironmentName, timestamp: webhookTimestamp } = parsedSignature
 
-  // Validate the timestamp to ensure the request isn't too old, which helps prevent replay attacks
+  // Validate the timestamp to ensure the request isn't too old
   const now = Math.floor(Date.now() / 1000)
   if (now - webhookTimestamp > DEFAULT_TOLERANCE) return false
 
