@@ -37,6 +37,9 @@ export default defineNuxtConfig({
       twitch: {
         secretKey: '',
       },
+      hygraph: {
+        secretKey: '',
+      },
     },
   },
   compatibilityDate: '2024-06-17',

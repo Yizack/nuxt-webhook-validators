@@ -37,6 +37,9 @@ export default defineNuxtConfig({
       twitch: {
         secretKey: 'testTwitchSecretKey',
       },
+      hygraph: {
+        secretKey: 'testHygraphSecretKey',
+      },
     },
   },
   serverDir: '../../../playground/server',

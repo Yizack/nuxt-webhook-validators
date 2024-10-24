@@ -62,5 +62,9 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.twitch = defu(runtimeConfig.webhook.twitch, {
       secretKey: '',
     })
+    // Hygraph Webhook
+    runtimeConfig.webhook.hygraph = defu(runtimeConfig.webhook.hygraph, {
+      secretKey: '',
+    })
   },
 })
