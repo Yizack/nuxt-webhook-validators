@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.1.2
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.1...v0.1.2)
+
+### 🚀 Enhancements
+
+- Add Hygraph webhook validator ([#2](https://github.com/Yizack/nuxt-webhook-validators/pull/2))
+
+### 📖 Documentation
+
+- Use `GitHub` as example ([61b1e4a](https://github.com/Yizack/nuxt-webhook-validators/commit/61b1e4a))
+
+### 🏡 Chore
+
+- Update dependencies ([8f4f788](https://github.com/Yizack/nuxt-webhook-validators/commit/8f4f788))
+
+### ❤️ Contributors
+
+- Wayne Gibson ([@waynegibson](http://github.com/waynegibson))
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v0.1.1
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.0...v0.1.1)
