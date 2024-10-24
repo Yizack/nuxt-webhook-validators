@@ -82,6 +82,7 @@ Go to [playground/.env.example](./playground/.env.example) or [playground/nuxt.c
 - Dropbox
 - GitHub
 - Heroku
+- Hygraph
 - Meta
 - NuxtHub
 - Paddle
