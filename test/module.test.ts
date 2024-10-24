@@ -64,4 +64,8 @@ describe('webhooks', () => {
     const response = await events.simulateTwitchEvent()
     expect(response).toStrictEqual(validWebhook)
   })
+  it('valid Hygraph webhook', async () => {
+    const response = await events.simulateHygraphEvent()
+    expect(response).toStrictEqual(validWebhook)
+  })
 })

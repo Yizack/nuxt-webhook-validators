@@ -34,6 +34,9 @@ export default defineNuxtConfig({
       twitch: {
         secretKey: '',
       },
+      hygraph: {
+        secretKey: '',
+      },
     },
   },
   devtools: { enabled: true },
