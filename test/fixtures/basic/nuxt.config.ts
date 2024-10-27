@@ -40,6 +40,9 @@ export default defineNuxtConfig({
       hygraph: {
         secretKey: 'testHygraphSecretKey',
       },
+      polar: {
+        secretKey: 'testPolarSecretKey',
+      },
     },
   },
   serverDir: '../../../playground/server',
