@@ -87,6 +87,7 @@ Go to [playground/.env.example](./playground/.env.example) or [playground/nuxt.c
 - NuxtHub
 - Paddle
 - PayPal
+- Polar
 - Stripe
 - Twitch
 

@@ -66,5 +66,9 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.hygraph = defu(runtimeConfig.webhook.hygraph, {
       secretKey: '',
     })
+    // Polar Webhook
+    runtimeConfig.webhook.polar = defu(runtimeConfig.webhook.polar, {
+      secretKey: '',
+    })
   },
 })
