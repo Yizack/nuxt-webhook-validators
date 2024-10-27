@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, HMAC_SHA256 } from '../helpers'
+import { computeSignature, HMAC_SHA256, ensureConfiguration } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const MAX_VALID_TIME_DIFFERENCE = 5
@@ -27,9 +27,11 @@ const extractHeaders = (header: string) => {
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
 export const isValidPaddleWebhook = async (event: H3Event): Promise<boolean> => {
+  const config = useRuntimeConfig(event).webhook.paddle
+  ensureConfiguration(config, 'paddle')
+
   const headers = getRequestHeaders(event)
   const body = await readRawBody(event)
-  const { webhookId } = useRuntimeConfig(event).webhook.paddle
 
   const paddleSignature = headers[PADDLE_SIGNATURE]
 
@@ -43,6 +45,6 @@ export const isValidPaddleWebhook = async (event: H3Event): Promise<boolean> => 
 
   const payloadWithTime = `${webhookTimestamp}:${body}`
 
-  const computedHash = await computeSignature(webhookId, HMAC_SHA256, payloadWithTime)
+  const computedHash = await computeSignature(config.webhookId, HMAC_SHA256, payloadWithTime)
   return computedHash === webhookSignature
 }

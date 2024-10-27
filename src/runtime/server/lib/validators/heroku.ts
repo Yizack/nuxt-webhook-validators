@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, HMAC_SHA256 } from '../helpers'
+import { computeSignature, HMAC_SHA256, ensureConfiguration } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const HEROKU_HMAC = 'Heroku-Webhook-Hmac-SHA256'.toLowerCase()
@@ -11,9 +11,11 @@ const HEROKU_HMAC = 'Heroku-Webhook-Hmac-SHA256'.toLowerCase()
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
 export const isValidHerokuWebhook = async (event: H3Event): Promise<boolean> => {
+  const config = useRuntimeConfig(event).webhook.heroku
+  ensureConfiguration(config, 'heroku')
+
   const headers = getRequestHeaders(event)
   const body = await readRawBody(event)
-  const { secretKey } = useRuntimeConfig(event).webhook.heroku
 
   const header = headers[HEROKU_HMAC]
 
@@ -21,6 +23,6 @@ export const isValidHerokuWebhook = async (event: H3Event): Promise<boolean> => 
 
   const webhookSignature = header
 
-  const computedHash = await computeSignature(secretKey, HMAC_SHA256, body, { encoding: 'base64' })
+  const computedHash = await computeSignature(config.secretKey, HMAC_SHA256, body, { encoding: 'base64' })
   return computedHash === webhookSignature
 }

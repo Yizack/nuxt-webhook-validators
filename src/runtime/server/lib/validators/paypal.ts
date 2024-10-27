@@ -1,4 +1,5 @@
 import { type H3Event, getRequestHeaders, readBody } from 'h3'
+import { ensureConfiguration } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const baseAPI = import.meta.dev ? 'https://api-m.sandbox.paypal.com/v1' : 'https://api-m.paypal.com/v1'
@@ -10,13 +11,15 @@ const baseAPI = import.meta.dev ? 'https://api-m.sandbox.paypal.com/v1' : 'https
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
 export const isValidPaypalWebhook = async (event: H3Event): Promise<boolean> => {
+  const config = useRuntimeConfig(event).webhook.paypal
+  ensureConfiguration(config, 'paypal')
+
   const headers = getRequestHeaders(event)
   const body = await readBody(event)
 
   if (!body || !headers) return false
 
-  const { clientId, secretKey, webhookId } = useRuntimeConfig(event).webhook.paypal
-  const basicAuth = btoa(`${clientId}:${secretKey}`)
+  const basicAuth = btoa(`${config.clientId}:${config.secretKey}`)
   const endpoint = `${baseAPI}/notifications/verify-webhook-signature`
 
   const response = await $fetch<{ verification_status: string }>(endpoint, {
@@ -30,7 +33,7 @@ export const isValidPaypalWebhook = async (event: H3Event): Promise<boolean> => 
       transmission_id: headers['paypal-transmission-id'],
       transmission_sig: headers['paypal-transmission-sig'],
       transmission_time: headers['paypal-transmission-time'],
-      webhook_id: webhookId,
+      webhook_id: config.webhookId,
       webhook_event: body,
     },
   }).catch(() => null)
