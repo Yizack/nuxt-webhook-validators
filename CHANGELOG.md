@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.1.3
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.2...v0.1.3)
+
+### 🚀 Enhancements
+
+- Add polar.sh webhook validator ([#3](https://github.com/Yizack/nuxt-webhook-validators/pull/3))
+
+### 💅 Refactors
+
+- Ensure missing configuration error ([c2c15f1](https://github.com/Yizack/nuxt-webhook-validators/commit/c2c15f1))
+
+### ❤️ Contributors
+
+- Ahmed Rangel ([@ahmedrangel](http://github.com/ahmedrangel))
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v0.1.2
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.1...v0.1.2)
