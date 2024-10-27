@@ -68,4 +68,8 @@ describe('webhooks', () => {
     const response = await events.simulateHygraphEvent()
     expect(response).toStrictEqual(validWebhook)
   })
+  it('valid Polar webhook', async () => {
+    const response = await events.simulatePolarEvent()
+    expect(response).toStrictEqual(validWebhook)
+  })
 })
