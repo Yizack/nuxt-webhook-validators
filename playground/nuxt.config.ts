@@ -40,6 +40,9 @@ export default defineNuxtConfig({
       hygraph: {
         secretKey: '',
       },
+      polar: {
+        secretKey: '',
+      },
     },
   },
   compatibilityDate: '2024-06-17',
