@@ -22,7 +22,7 @@ export const isValidPolarWebhook = async (event: H3Event): Promise<boolean> => {
   const webhookSignature = headers[POLAR_SIGNATURE]
   const webhookTimestamp = headers[POLAR_SIGNATURE_TIMESTAMP]
 
-  if (!body || !secretKey || !webhookId || !webhookSignature || !webhookTimestamp) return false
+  if (!body || !webhookId || !webhookSignature || !webhookTimestamp) return false
 
   // Validate the timestamp to ensure the request isn't too old
   const now = Math.floor(Date.now() / 1000)
