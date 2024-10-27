@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, HMAC_SHA256 } from '../helpers'
+import { computeSignature, HMAC_SHA256, ensureConfiguration } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const DEFAULT_TOLERANCE = 300 // 5 minutes tolerance
@@ -36,9 +36,12 @@ function parseSignature(signature: string): ParsedSignature | null {
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
 export const isValidHygraphWebhook = async (event: H3Event): Promise<boolean> => {
+  const config = useRuntimeConfig(event).webhook.hygraph
+  ensureConfiguration(config, 'hygraph')
+
   const headers = getRequestHeaders(event)
   const body = await readRawBody(event)
-  const { secretKey } = useRuntimeConfig(event).webhook.hygraph
+
   const hygraphSignature = headers[HYGRAPH_SIGNATURE]
 
   if (!body || !hygraphSignature) return false
@@ -58,7 +61,7 @@ export const isValidHygraphWebhook = async (event: H3Event): Promise<boolean> =>
     TimeStamp: webhookTimestamp,
   })
 
-  const computedHash = await computeSignature(secretKey, HMAC_SHA256, payload, { encoding: 'base64' })
+  const computedHash = await computeSignature(config.secretKey, HMAC_SHA256, payload, { encoding: 'base64' })
 
   return computedHash === webhookSignature
 }
