@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.1.4
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.3...v0.1.4)
+
+### 💅 Refactors
+
+- Return provider config after ensuring it ([a0a6e4c](https://github.com/Yizack/nuxt-webhook-validators/commit/a0a6e4c))
+
+### 🏡 Chore
+
+- Update deps ([8710d2b](https://github.com/Yizack/nuxt-webhook-validators/commit/8710d2b))
+- Update deps ([6e30670](https://github.com/Yizack/nuxt-webhook-validators/commit/6e30670))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v0.1.3
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.2...v0.1.3)
