@@ -2,7 +2,6 @@ import { subtle } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
 import { encoder, HMAC_SHA256, ensureConfiguration } from '../helpers'
-import { useRuntimeConfig } from '#imports'
 
 const NUXTHUB_SIGNATURE = 'x-nuxthub-signature'
 
@@ -13,8 +12,7 @@ const NUXTHUB_SIGNATURE = 'x-nuxthub-signature'
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
 export const isValidNuxthubWebhook = async (event: H3Event): Promise<boolean> => {
-  const config = useRuntimeConfig(event).webhook.nuxthub
-  ensureConfiguration(config, 'nuxthub')
+  const config = ensureConfiguration('nuxthub', event)
 
   const headers = getRequestHeaders(event)
   const body = await readRawBody(event)

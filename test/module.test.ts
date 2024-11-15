@@ -1,16 +1,37 @@
 import { fileURLToPath } from 'node:url'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { $fetch, setup } from '@nuxt/test-utils/e2e'
+import type { RuntimeConfig } from '@nuxt/schema'
+import { ensureConfiguration } from '../src/runtime/server/lib/helpers'
+import nuxtConfig from './fixtures/basic/nuxt.config'
 import * as events from './events'
 
 const validWebhook = { isValidWebhook: true }
 
 await setup({ rootDir: fileURLToPath(new URL('./fixtures/basic', import.meta.url)) })
+vi.mock('#imports', () => ({
+  useRuntimeConfig: vi.fn(() => nuxtConfig.runtimeConfig),
+}))
 
 describe('ssr', () => {
   it('renders the index page', async () => {
     const html = await $fetch('/')
     expect(html).toContain('<div>Nuxt Webhook Validators</div>')
+  })
+})
+
+describe('ensureConfiguration method', () => {
+  it('returns the configuration object', () => {
+    if (!nuxtConfig.runtimeConfig?.webhook) return
+    for (const [key, config] of Object.entries(nuxtConfig.runtimeConfig.webhook)) {
+      const provider = key as keyof RuntimeConfig['webhook']
+      if (provider === 'paypal') {
+        expect(() => ensureConfiguration(provider)).toThrowError()
+        continue
+      }
+      const resultConfig = ensureConfiguration(provider)
+      expect(resultConfig).toStrictEqual(config)
+    }
   })
 })
 

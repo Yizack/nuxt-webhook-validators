@@ -1,6 +1,5 @@
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
 import { computeSignature, HMAC_SHA256, ensureConfiguration } from '../helpers'
-import { useRuntimeConfig } from '#imports'
 
 const POLAR_SIGNATURE_ID = 'webhook-id'
 const POLAR_SIGNATURE = 'webhook-signature'
@@ -14,8 +13,7 @@ const DEFAULT_TOLERANCE = 300 // 5 minutes
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
 export const isValidPolarWebhook = async (event: H3Event): Promise<boolean> => {
-  const config = useRuntimeConfig(event).webhook.polar
-  ensureConfiguration(config, 'polar')
+  const config = ensureConfiguration('polar', event)
 
   const headers = getRequestHeaders(event)
   const body = await readRawBody(event)

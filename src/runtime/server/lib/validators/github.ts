@@ -1,6 +1,5 @@
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
 import { computeSignature, HMAC_SHA256, ensureConfiguration } from '../helpers'
-import { useRuntimeConfig } from '#imports'
 
 const GITHUB_SIGNATURE = 'X-Hub-Signature-256'.toLowerCase()
 
@@ -11,8 +10,7 @@ const GITHUB_SIGNATURE = 'X-Hub-Signature-256'.toLowerCase()
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
 export const isValidGithubWebhook = async (event: H3Event): Promise<boolean> => {
-  const config = useRuntimeConfig(event).webhook.github
-  ensureConfiguration(config, 'github')
+  const config = ensureConfiguration('github', event)
 
   const headers = getRequestHeaders(event)
   const body = await readRawBody(event)
