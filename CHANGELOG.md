@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.1.5
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.4...v0.1.5)
+
+### 💅 Refactors
+
+- Rename `isValidGithubWebhook` to `isValidGitHubWebhook` ([#5](https://github.com/Yizack/nuxt-webhook-validators/pull/5))
+
+### 📖 Documentation
+
+- Fix typo in composable name ([#4](https://github.com/Yizack/nuxt-webhook-validators/pull/4))
+
+### 🏡 Chore
+
+- Update dependencies ([c14fa0b](https://github.com/Yizack/nuxt-webhook-validators/commit/c14fa0b))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+- Daniel Roe ([@danielroe](http://github.com/danielroe))
+
 ## v0.1.4
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.3...v0.1.4)
