@@ -7,7 +7,7 @@ import nuxtConfig from '../fixtures/basic/nuxt.config'
 const body = 'testBody'
 const secretKey = nuxtConfig.runtimeConfig?.webhook?.github?.secretKey
 
-export const simulateGithubEvent = async () => {
+export const simulateGitHubEvent = async () => {
   const signature = await subtle.importKey('raw', encoder.encode(secretKey), HMAC_SHA256, false, ['sign'])
   const hmac = await subtle.sign(HMAC_SHA256.name, signature, encoder.encode(body))
   const computedHash = Buffer.from(hmac).toString('hex')

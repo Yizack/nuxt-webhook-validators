@@ -47,7 +47,7 @@ describe('webhooks', () => {
   })
 
   it('valid GitHub webhook', async () => {
-    const response = await events.simulateGithubEvent()
+    const response = await events.simulateGitHubEvent()
     expect(response).toStrictEqual(validWebhook)
   })
 
