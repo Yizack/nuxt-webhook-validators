@@ -101,7 +101,7 @@ Validate a GitHub webhook in a server API route.
 
 ```js
 export default defineEventHandler(async (event) => {
-  const isValidWebhook = await isValidGithubWebhook(event)
+  const isValidWebhook = await isValidGitHubWebhook(event)
 
   if (!isValidWebhook) {
     throw createError({ statusCode: 401, message: 'Unauthorized: webhook is not valid' })

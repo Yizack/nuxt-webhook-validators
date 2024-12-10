@@ -9,7 +9,7 @@ const GITHUB_SIGNATURE = 'X-Hub-Signature-256'.toLowerCase()
  * @param event H3Event
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
-export const isValidGithubWebhook = async (event: H3Event): Promise<boolean> => {
+export const isValidGitHubWebhook = async (event: H3Event): Promise<boolean> => {
   const config = ensureConfiguration('github', event)
 
   const headers = getRequestHeaders(event)
@@ -25,3 +25,9 @@ export const isValidGithubWebhook = async (event: H3Event): Promise<boolean> => 
   const computedHash = await computeSignature(config.secretKey, HMAC_SHA256, body)
   return computedHash === webhookSignature
 }
+
+/**
+ * Alias for backwards compatibility
+ * @deprecated Use `isValidGitHubWebhook` instead
+ */
+export const isValidGithubWebhook = (event: H3Event) => isValidGitHubWebhook(event)
