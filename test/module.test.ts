@@ -51,6 +51,11 @@ describe('webhooks', () => {
     expect(response).toStrictEqual(validWebhook)
   })
 
+  it('valid GitLab webhook', async () => {
+    const response = await events.simulateGitLabEvent()
+    expect(response).toStrictEqual(validWebhook)
+  })
+
   it('valid Heroku webhook', async () => {
     const response = await events.simulateHerokuEvent()
     expect(response).toStrictEqual(validWebhook)
