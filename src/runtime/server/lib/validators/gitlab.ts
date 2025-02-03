@@ -1,7 +1,7 @@
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, HMAC_SHA256, ensureConfiguration } from '../helpers'
+import { ensureConfiguration } from '../helpers'
 
-const GITLAB_SIGNATURE = 'X-Gitlab-Token'.toLowerCase()
+const GITLAB_TOKEN = 'X-Gitlab-Token'.toLowerCase()
 
 /**
  * Validates GitLab webhooks on the Edge
@@ -15,13 +15,9 @@ export const isValidGitLabWebhook = async (event: H3Event): Promise<boolean> => 
   const headers = getRequestHeaders(event)
   const body = await readRawBody(event)
 
-  const header = headers[GITLAB_SIGNATURE]
+  const header = headers[GITLAB_TOKEN]
 
   if (!body || !header) return false
 
-  const parts = header.split('=')
-  const webhookSignature = parts[1]
-
-  const computedHash = await computeSignature(config.secretToken, HMAC_SHA256, body)
-  return computedHash === webhookSignature
+  return header === config.secretToken
 }
