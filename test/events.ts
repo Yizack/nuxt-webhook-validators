@@ -1,5 +1,6 @@
 export { simulateDiscordEvent } from './simulations/discord'
 export { simulateGitHubEvent } from './simulations/github'
+export { simulateGitLabEvent } from './simulations/gitlab'
 export { simulateHerokuEvent } from './simulations/heroku'
 export { simulatePaddleEvent } from './simulations/paddle'
 export { simulateTwitchEvent } from './simulations/twitch'

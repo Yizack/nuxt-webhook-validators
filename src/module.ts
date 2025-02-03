@@ -32,6 +32,10 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.github = defu(runtimeConfig.webhook.github, {
       secretKey: '',
     })
+    // GitLab Webhook
+    runtimeConfig.webhook.gitlab = defu(runtimeConfig.webhook.gitlab, {
+      secretToken: '',
+    })
     // Heroku Webhook
     runtimeConfig.webhook.heroku = defu(runtimeConfig.webhook.heroku, {
       secretKey: '',

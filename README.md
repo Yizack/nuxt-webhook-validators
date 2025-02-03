@@ -14,7 +14,7 @@ A simple nuxt module that works on the edge to easily validate incoming webhooks
 
 ## Features
 
-- 12 [Webhook validators](#supported-webhook-validators)
+- 13 [Webhook validators](#supported-webhook-validators)
 - Works on the edge
 - Exposed [Server utils](#server-utils)
 
@@ -81,6 +81,7 @@ Go to [playground/.env.example](./playground/.env.example) or [playground/nuxt.c
 - Discord
 - Dropbox
 - GitHub
+- GitLab
 - Heroku
 - Hygraph
 - Meta
