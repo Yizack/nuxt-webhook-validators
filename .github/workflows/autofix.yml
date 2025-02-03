@@ -14,21 +14,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          corepack enable
-          packageManager=$(node -p "require('./package.json').packageManager")
-          SHA_SUM=$(npm view $packageManager dist.shasum)
-          corepack install -g $packageManager+sha1.$SHA_SUM
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: lts/*
           cache: "pnpm"
 
       - name: 📦 Install dependencies
         run: pnpm install
 
       - name: 🔎 Lint (code)
-        run: pnpm lint --fix
+        run: pnpm lint:fix
 
       - name: ⚙️ Auto-fix
         uses: autofix-ci/action@ea32e3a12414e6d3183163c3424a7d7a8631ad84
