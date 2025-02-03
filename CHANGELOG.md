@@ -1,6 +1,23 @@
 # Changelog
 
 
+## v0.1.6
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.5...v0.1.6)
+
+### 🚀 Enhancements
+
+- Add gitlab webhook validator ([#6](https://github.com/Yizack/nuxt-webhook-validators/pull/6))
+
+### 🤖 CI
+
+- Temporal fix corepack keyid ([13e28c8](https://github.com/Yizack/nuxt-webhook-validators/commit/13e28c8))
+
+### ❤️ Contributors
+
+- Emmanuel Salomon ([@ManUtopiK](http://github.com/ManUtopiK))
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v0.1.5
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.4...v0.1.5)
