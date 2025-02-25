@@ -20,6 +20,10 @@ export default defineNuxtConfig({
       heroku: {
         secretKey: 'testHerokuSecretKey',
       },
+      kick: {
+        // Generated key: type: 'spki' | format: 'pem'
+        publicKey: 'MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAO4GZQc6hemxG93YR1bTu/kTmmycoqwpWudSAmTAW8cqyio6eZexPD5PGGp2WUEJr5DSPH4LCMjJMcKloLeZKEMCAwEAAQ==',
+      },
       meta: {
         appSecret: 'testMetaAppSecret',
       },

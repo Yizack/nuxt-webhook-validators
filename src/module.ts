@@ -40,6 +40,10 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.heroku = defu(runtimeConfig.webhook.heroku, {
       secretKey: '',
     })
+    // Kick Webhook
+    runtimeConfig.webhook.kick = defu(runtimeConfig.webhook.kick, {
+      publicKey: '',
+    })
     // Meta Webhook
     runtimeConfig.webhook.meta = defu(runtimeConfig.webhook.meta, {
       appSecret: '',
