@@ -60,9 +60,4 @@ export const ensureConfiguration = <T extends keyof RuntimeConfig['webhook']>(pr
   throw new Error(`Missing ${environmentVariables.join(' or ')} env ${missingKeys.length > 1 ? 'variables' : 'variable'}.`)
 }
 
-export const stripPemHeaders = (pem: string) => {
-  return pem
-    .replace('-----BEGIN PUBLIC KEY-----', '')
-    .replace('-----END PUBLIC KEY-----', '')
-    .replace(/\s/g, '')
-}
+export const stripPemHeaders = (pem: string) => pem.replace(/-----[^-]+-----|\s/g, '')
