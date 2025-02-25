@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.7
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.6...v0.1.7)
+
+### 🚀 Enhancements
+
+- Add kick webhook validator ([#7](https://github.com/Yizack/nuxt-webhook-validators/pull/7))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v0.1.6
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.5...v0.1.6)
