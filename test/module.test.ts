@@ -61,6 +61,11 @@ describe('webhooks', () => {
     expect(response).toStrictEqual(validWebhook)
   })
 
+  it('valid Kick webhook', async () => {
+    const response = await events.simulateKickEvent()
+    expect(response).toStrictEqual(validWebhook)
+  })
+
   it('valid Meta webhook', async () => {
     const response = await events.simulateMetaEvent()
     expect(response).toStrictEqual(validWebhook)

@@ -20,6 +20,10 @@ export default defineNuxtConfig({
       heroku: {
         secretKey: '',
       },
+      kick: {
+        // (Set in case Kick changes their public key)
+        publicKey: '',
+      },
       meta: {
         appSecret: '',
       },
