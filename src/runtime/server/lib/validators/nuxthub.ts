@@ -11,7 +11,7 @@ const NUXTHUB_SIGNATURE = 'x-nuxthub-signature'
  * @param event H3Event
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
-export const isValidNuxthubWebhook = async (event: H3Event): Promise<boolean> => {
+export const isValidNuxtHubWebhook = async (event: H3Event): Promise<boolean> => {
   const config = ensureConfiguration('nuxthub', event)
 
   const headers = getRequestHeaders(event)
@@ -27,3 +27,9 @@ export const isValidNuxthubWebhook = async (event: H3Event): Promise<boolean> =>
 
   return signature === webhookSignature
 }
+
+/**
+ * Alias for backwards compatibility
+ * @deprecated Use `isValidNuxtHubWebhook` instead
+ */
+export const isValidNuxthubWebhook = (event: H3Event) => isValidNuxtHubWebhook(event)
