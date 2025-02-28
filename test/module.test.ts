@@ -91,6 +91,11 @@ describe('webhooks', () => {
     expect(response).toStrictEqual(validWebhook)
   })
 
+  it('valid Svix Webhook', async () => {
+    const response = await events.simulateSvixEvent()
+    expect(response).toStrictEqual(validWebhook)
+  })
+
   it('valid Twitch webhook', async () => {
     const response = await events.simulateTwitchEvent()
     expect(response).toStrictEqual(validWebhook)

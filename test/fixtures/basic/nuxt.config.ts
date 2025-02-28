@@ -41,6 +41,9 @@ export default defineNuxtConfig({
       stripe: {
         secretKey: 'testStripeSecretKey',
       },
+      svix: {
+        secretKey: 'test_c3ZpeFNlY3JldEtleQ==',
+      },
       twitch: {
         secretKey: 'testTwitchSecretKey',
       },
