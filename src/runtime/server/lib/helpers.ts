@@ -52,8 +52,14 @@ export const verifyPublicSignature = async (
   return result
 }
 
+export const configContext: { provider: keyof RuntimeConfig['webhook'] | null } = {
+  provider: null,
+}
+
 export const ensureConfiguration = <T extends keyof RuntimeConfig['webhook']>(provider: T, event?: H3Event) => {
+  if (configContext.provider) provider = configContext.provider as T
   const runtimeConfig = useRuntimeConfig(event).webhook[provider]
+  if (configContext.provider) configContext.provider = null
 
   const missingKeys = Object.entries(runtimeConfig).filter(([_, value]) => !value).map(([key]) => key)
   if (!missingKeys.length) return runtimeConfig

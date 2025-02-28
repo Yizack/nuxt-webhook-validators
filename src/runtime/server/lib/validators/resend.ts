@@ -1,3 +1,5 @@
+import type { H3Event } from 'h3'
+import { configContext } from '../helpers'
 import { isValidSvixWebhook } from './svix'
 
 /**
@@ -6,4 +8,7 @@ import { isValidSvixWebhook } from './svix'
  * @param event H3Event
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
-export const isValidResendWebhook = isValidSvixWebhook
+export const isValidResendWebhook = async (event: H3Event): Promise<boolean> => {
+  configContext.provider = 'resend'
+  return isValidSvixWebhook(event)
+}
