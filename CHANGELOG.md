@@ -1,6 +1,32 @@
 # Changelog
 
 
+## v0.1.8
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.7...v0.1.8)
+
+### 🚀 Enhancements
+
+- Add svix webhook validator ([#8](https://github.com/Yizack/nuxt-webhook-validators/pull/8))
+- Add resend webhook validator ([#9](https://github.com/Yizack/nuxt-webhook-validators/pull/9))
+
+### 💅 Refactors
+
+- Rename `isValidNuxthubWebhook` to `isValidNuxtHubWebhook` ([fa7243b](https://github.com/Yizack/nuxt-webhook-validators/commit/fa7243b))
+- Simplify function reference for deprecated exports ([fd4de48](https://github.com/Yizack/nuxt-webhook-validators/commit/fd4de48))
+
+### 🏡 Chore
+
+- Support strip all pem headers just in case ([bc79c7f](https://github.com/Yizack/nuxt-webhook-validators/commit/bc79c7f))
+
+### ✅ Tests
+
+- **kick:** Add missing buffer import ([c7ed444](https://github.com/Yizack/nuxt-webhook-validators/commit/c7ed444))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.1.7
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.6...v0.1.7)
