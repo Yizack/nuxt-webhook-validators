@@ -19,11 +19,13 @@ export const computeSignature = async (
   options?: Partial<{
     extractable: boolean
     encoding: BufferEncoding
+    decodeKey: boolean
   }>,
 ) => {
   const encoding = options?.encoding ?? 'hex'
+  const secretKeyBuffer = options?.decodeKey ? Buffer.from(secretKey, encoding) : encoder.encode(secretKey)
 
-  const key = await subtle.importKey('raw', encoder.encode(secretKey), algorithm, Boolean(options?.extractable), ['sign'])
+  const key = await subtle.importKey('raw', secretKeyBuffer, algorithm, Boolean(options?.extractable), ['sign'])
   const signature = await subtle.sign(algorithm.name, key, encoder.encode(payload))
   return Buffer.from(signature).toString(encoding)
 }
