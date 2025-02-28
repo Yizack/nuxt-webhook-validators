@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.1.9
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.8...v0.1.9)
+
+### 🩹 Fixes
+
+- **resend:** Provide context to ensure configuration ([679b927](https://github.com/Yizack/nuxt-webhook-validators/commit/679b927))
+
+### 🏡 Chore
+
+- Throw config errors using `createError` ([5b7c224](https://github.com/Yizack/nuxt-webhook-validators/commit/5b7c224))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](http://github.com/Yizack))
+
 ## v0.1.8
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.7...v0.1.8)
