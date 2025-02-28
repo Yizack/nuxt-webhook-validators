@@ -32,4 +32,4 @@ export const isValidNuxtHubWebhook = async (event: H3Event): Promise<boolean> =>
  * Alias for backwards compatibility
  * @deprecated Use `isValidNuxtHubWebhook` instead
  */
-export const isValidNuxthubWebhook = (event: H3Event) => isValidNuxtHubWebhook(event)
+export const isValidNuxthubWebhook = isValidNuxtHubWebhook
