@@ -1,7 +1,7 @@
 import { subtle, type webcrypto } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 import { snakeCase } from 'scule'
-import type { H3Event } from 'h3'
+import { type H3Event, createError } from 'h3'
 import type { RuntimeConfig } from '@nuxt/schema'
 import { useRuntimeConfig } from '#imports'
 
@@ -65,7 +65,12 @@ export const ensureConfiguration = <T extends keyof RuntimeConfig['webhook']>(pr
   if (!missingKeys.length) return runtimeConfig
 
   const environmentVariables = missingKeys.map(key => `NUXT_WEBHOOK_${provider.toUpperCase()}_${snakeCase(key).toUpperCase()}`)
-  throw new Error(`Missing ${environmentVariables.join(' or ')} env ${missingKeys.length > 1 ? 'variables' : 'variable'}.`)
+  const errorMessage = `Missing ${environmentVariables.join(' or ')} env ${missingKeys.length > 1 ? 'variables' : 'variable'}.`
+  console.error(errorMessage)
+  throw createError({
+    statusCode: 500,
+    message: errorMessage,
+  })
 }
 
 export const stripPemHeaders = (pem: string) => pem.replace(/-----[^-]+-----|\s/g, '')
