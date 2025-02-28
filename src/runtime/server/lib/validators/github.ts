@@ -30,4 +30,4 @@ export const isValidGitHubWebhook = async (event: H3Event): Promise<boolean> => 
  * Alias for backwards compatibility
  * @deprecated Use `isValidGitHubWebhook` instead
  */
-export const isValidGithubWebhook = (event: H3Event) => isValidGitHubWebhook(event)
+export const isValidGithubWebhook = isValidGitHubWebhook
