@@ -38,6 +38,9 @@ export default defineNuxtConfig({
         secretKey: '',
         webhookId: '',
       },
+      resend: {
+        secretKey: 'test_c3ZpeFNlY3JldEtleQ==',
+      },
       stripe: {
         secretKey: 'testStripeSecretKey',
       },

@@ -86,6 +86,11 @@ describe('webhooks', () => {
     expect(response).toStrictEqual(validWebhook)
   })
 
+  it('valid Resend webhook', async () => {
+    const response = await events.simulateResendEvent()
+    expect(response).toStrictEqual(validWebhook)
+  })
+
   it('valid Stripe webhook', async () => {
     const response = await events.simulateStripeEvent()
     expect(response).toStrictEqual(validWebhook)

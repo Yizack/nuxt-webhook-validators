@@ -14,7 +14,7 @@ A simple nuxt module that works on the edge to easily validate incoming webhooks
 
 ## Features
 
-- 15 [Webhook validators](#supported-webhook-validators)
+- 16 [Webhook validators](#supported-webhook-validators)
 - Works on the edge
 - Exposed [Server utils](#server-utils)
 
@@ -90,6 +90,7 @@ Go to [playground/.env.example](./playground/.env.example) or [playground/nuxt.c
 - Paddle
 - PayPal
 - Polar
+- Resend
 - Stripe
 - Svix
 - Twitch
