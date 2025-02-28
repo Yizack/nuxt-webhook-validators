@@ -66,6 +66,10 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.stripe = defu(runtimeConfig.webhook.stripe, {
       secretKey: '',
     })
+    // Svix Webhook
+    runtimeConfig.webhook.svix = defu(runtimeConfig.webhook.svix, {
+      secretKey: '',
+    })
     // Twitch Webhook
     runtimeConfig.webhook.twitch = defu(runtimeConfig.webhook.twitch, {
       secretKey: '',
