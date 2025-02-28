@@ -8,10 +8,10 @@ const body = 'testBody'
 const webhookId = 'testSvixMessageId'
 const secretKey = nuxtConfig.runtimeConfig?.webhook?.svix?.secretKey
 
-export const simulateSvixEvent = async () => {
+export const simulateSvixEvent = async (key: string = secretKey!) => {
   const timestamp = Math.floor(Date.now() / 1000).toString()
   const payload = `${webhookId}.${timestamp}.${body}`
-  const secretKeyBase64 = secretKey!.split('_')[1]
+  const secretKeyBase64 = key.split('_')[1]
   const signatureBuffer = Buffer.from(secretKeyBase64, 'base64')
   const signature = await subtle.importKey('raw', signatureBuffer, HMAC_SHA256, false, ['sign'])
   const hmac = await subtle.sign(HMAC_SHA256.name, signature, encoder.encode(payload))
