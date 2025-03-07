@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   modules: [
-    'nuxt-webhook-validators',
+    '../src/module',
   ],
   imports: {
     autoImport: true,
