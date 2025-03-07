@@ -41,6 +41,9 @@ export default defineNuxtConfig({
       resend: {
         secretKey: '',
       },
+      shopify: {
+        secretKey: '',
+      },
       stripe: {
         secretKey: '',
       },

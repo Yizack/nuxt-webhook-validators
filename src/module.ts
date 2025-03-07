@@ -66,6 +66,10 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.resend = defu(runtimeConfig.webhook.resend, {
       secretKey: '',
     })
+    // Shopify Webhook
+    runtimeConfig.webhook.shopify = defu(runtimeConfig.webhook.shopify, {
+      secretKey: '',
+    })
     // Stripe Webhook
     runtimeConfig.webhook.stripe = defu(runtimeConfig.webhook.stripe, {
       secretKey: '',
