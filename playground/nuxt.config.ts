@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   modules: [
-    'nuxt-webhook-validators',
+    '../src/module',
   ],
   imports: {
     autoImport: true,
@@ -39,6 +39,9 @@ export default defineNuxtConfig({
         webhookId: '',
       },
       resend: {
+        secretKey: '',
+      },
+      shopify: {
         secretKey: '',
       },
       stripe: {

@@ -91,6 +91,11 @@ describe('webhooks', () => {
     expect(response).toStrictEqual(validWebhook)
   })
 
+  it('valid Shopify webhook', async () => {
+    const response = await events.simulateShopifyEvent()
+    expect(response).toStrictEqual(validWebhook)
+  })
+
   it('valid Stripe webhook', async () => {
     const response = await events.simulateStripeEvent()
     expect(response).toStrictEqual(validWebhook)
