@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.10
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.9...v0.1.10)
+
+### 🚀 Enhancements
+
+- Add shopify webhook validator ([#10](https://github.com/Yizack/nuxt-webhook-validators/pull/10))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.1.9
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.8...v0.1.9)
