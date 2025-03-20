@@ -74,3 +74,16 @@ export const ensureConfiguration = <T extends keyof RuntimeConfig['webhook']>(pr
 }
 
 export const stripPemHeaders = (pem: string) => pem.replace(/-----[^-]+-----|\s/g, '')
+
+export const validateSha256 = async (
+  hash: string,
+  payload?: string,
+  options?: Partial<{
+    encoding: BufferEncoding
+  }>,
+) => {
+  const encoding = options?.encoding ?? 'hex'
+  const signatureBuffer = await subtle.digest(HMAC_SHA256.hash, encoder.encode(payload))
+  const signature = Buffer.from(signatureBuffer).toString(encoding)
+  return signature === hash
+}

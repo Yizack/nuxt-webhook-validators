@@ -1,6 +1,5 @@
-import { subtle } from 'node:crypto'
 import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { verifyPublicSignature, HMAC_SHA256, ED25519, stripPemHeaders, encoder } from '../helpers'
+import { verifyPublicSignature, ED25519, validateSha256, stripPemHeaders } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const MAILCHANNELS_CONTENT_DIGEST = 'content-digest'
@@ -8,22 +7,15 @@ const MAILCHANNELS_SIGNATURE = 'signature'
 const MAILCHANNELS_SIGNATURE_INPUT = 'signature-input'
 const DEFAULT_TOLERANCE = 300 // 5 minutes
 
-const validateContentDigest = async (header?: string, body?: string) => {
-  if (!header) return false
-
+const validateContentDigest = async (header: string, body: string) => {
   const match = header.match(/^(.*?)=:(.*?):$/)
   if (!match) return false
 
-  const [, algorithm, providedDigest] = match
-
+  const [, algorithm, hash] = match
   const normalizedAlgorithm = algorithm.replace('-', '').toLowerCase()
+
   if (!['sha256'].includes(normalizedAlgorithm)) return false
-
-  const bodyBuffer = encoder.encode(body)
-  const hashBuffer = await subtle.digest(HMAC_SHA256.hash, bodyBuffer)
-  const hash = Buffer.from(hashBuffer).toString('base64')
-
-  return hash === providedDigest
+  return validateSha256(hash, body, { encoding: 'base64' })
 }
 
 const extractSignature = (signatureHeader: string): string | null => {
