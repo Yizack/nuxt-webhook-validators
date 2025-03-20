@@ -1,5 +1,7 @@
 import { defineNuxtConfig } from 'nuxt/config'
 import myModule from '../../../src/module'
+// @ts-expect-error generated on test command
+import keys from './test-keys.json'
 
 export default defineNuxtConfig({
   modules: [myModule],
@@ -21,8 +23,8 @@ export default defineNuxtConfig({
         secretKey: 'testHerokuSecretKey',
       },
       kick: {
-        // Generated key: type: 'spki' | format: 'pem'
-        publicKey: 'MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAO4GZQc6hemxG93YR1bTu/kTmmycoqwpWudSAmTAW8cqyio6eZexPD5PGGp2WUEJr5DSPH4LCMjJMcKloLeZKEMCAwEAAQ==',
+        // Generated on test setup
+        publicKey: keys.publicKey,
       },
       meta: {
         appSecret: 'testMetaAppSecret',
