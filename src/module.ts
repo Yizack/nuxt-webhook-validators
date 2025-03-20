@@ -44,6 +44,10 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.kick = defu(runtimeConfig.webhook.kick, {
       publicKey: '',
     })
+    // MailChannels Webhook
+    runtimeConfig.webhook.mailchannels = defu(runtimeConfig.webhook.mailchannels, {
+      publicKey: '',
+    })
     // Meta Webhook
     runtimeConfig.webhook.meta = defu(runtimeConfig.webhook.meta, {
       appSecret: '',
