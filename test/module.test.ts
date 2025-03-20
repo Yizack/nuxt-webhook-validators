@@ -9,7 +9,7 @@ import { generateTestingKeys } from './genKeys'
 const validWebhook = { isValidWebhook: true }
 
 // Generate test keys
-generateTestingKeys()
+await generateTestingKeys()
 const nuxtConfig = (await import('./fixtures/basic/nuxt.config')).default
 
 // Nuxt setup
