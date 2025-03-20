@@ -15,9 +15,10 @@ export const simulateMailChannelsEvent = async () => {
   const bodyHash = await sha256(body, 'base64')
   const contentDigest = `sha-256=:${bodyHash}:`
 
-  const signatureInput = `sig_123456=("content-digest");created=${timestamp};alg="ed25519";keyid="mckey"`
+  const signatureInputValues = `("content-digest");created=${timestamp};alg="ed25519";keyid="mckey"`
+  const signatureInput = `sig_123456=${signatureInputValues}`
   const signingString = `"content-digest": ${contentDigest}
-"@signature-params": ("content-digest");created=${timestamp};alg="ed25519";keyid="mckey"`
+"@signature-params": ${signatureInputValues}`
 
   const signatureBuffer = await subtle.sign(ED25519.name, privateKey, encoder.encode(signingString))
   const signature = `sig_123456=:${Buffer.from(signatureBuffer).toString('base64')}:`
