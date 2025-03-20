@@ -24,6 +24,10 @@ export default defineNuxtConfig({
         // (Set in case Kick changes their public key)
         publicKey: '',
       },
+      mailchannels: {
+        // (Optional unless a specific case)
+        publicKey: '',
+      },
       meta: {
         appSecret: '',
       },

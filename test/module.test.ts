@@ -1,23 +1,15 @@
 import { fileURLToPath } from 'node:url'
-import { rm, writeFile } from 'node:fs/promises'
-import { generateKeyPairSync } from 'node:crypto'
+import { rm } from 'node:fs/promises'
 import { describe, it, expect, vi, afterAll } from 'vitest'
 import { $fetch, setup } from '@nuxt/test-utils/e2e'
 import type { RuntimeConfig } from '@nuxt/schema'
 import { ensureConfiguration } from '../src/runtime/server/lib/helpers'
+import { generateTestingKeys } from './genKeys'
 
 const validWebhook = { isValidWebhook: true }
 
 // Generate test keys
-const keysDir = fileURLToPath(new URL('./fixtures/basic/test-keys.json', import.meta.url))
-
-const keys = generateKeyPairSync('rsa', {
-  modulusLength: 512,
-  publicKeyEncoding: { type: 'spki', format: 'pem' },
-  privateKeyEncoding: { type: 'pkcs8', format: 'pem' },
-})
-
-await writeFile(keysDir, JSON.stringify(keys))
+generateTestingKeys()
 const nuxtConfig = (await import('./fixtures/basic/nuxt.config')).default
 
 // Nuxt setup
@@ -51,7 +43,9 @@ describe('webhooks', async () => {
     useRuntimeConfig: vi.fn(() => nuxtConfig.runtimeConfig),
   }))
 
-  afterAll(() => rm(keysDir))
+  afterAll(() => {
+    rm(fileURLToPath(new URL('./fixtures/basic/test-keys.json', import.meta.url)))
+  })
 
   // Iterate over the `events` object dynamically
   const events = await import('./events')

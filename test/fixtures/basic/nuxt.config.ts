@@ -1,7 +1,7 @@
 import { defineNuxtConfig } from 'nuxt/config'
 import myModule from '../../../src/module'
 // @ts-expect-error generated on test command
-import keys from './test-keys.json'
+import { rsaKeys, ed25519Keys } from './test-keys.json'
 
 export default defineNuxtConfig({
   modules: [myModule],
@@ -24,7 +24,11 @@ export default defineNuxtConfig({
       },
       kick: {
         // Generated on test setup
-        publicKey: keys.publicKey,
+        publicKey: rsaKeys.publicKey,
+      },
+      mailchannels: {
+        // Generated on test setup
+        publicKey: ed25519Keys.publicKey,
       },
       meta: {
         appSecret: 'testMetaAppSecret',
