@@ -6,6 +6,7 @@ import { useRuntimeConfig } from '#imports'
 const MAILCHANNELS_CONTENT_DIGEST = 'content-digest'
 const MAILCHANNELS_SIGNATURE = 'signature'
 const MAILCHANNELS_SIGNATURE_INPUT = 'signature-input'
+const DEFAULT_TOLERANCE = 300 // 5 minutes
 
 const validateContentDigest = async (header?: string, body?: string) => {
   if (!header) return false
@@ -70,6 +71,10 @@ export const isValidMailChannelsWebhook = async (event: H3Event): Promise<boolea
 
   const values = extractInputValues(signatureInput)
   if (!values) return false
+
+  // Validate the timestamp to ensure the request isn't too old
+  const now = Math.floor(Date.now() / 1000)
+  if (now - values.timestamp > DEFAULT_TOLERANCE) return false
 
   const signingString = `"content-digest": ${contentDigest}
 "@signature-params": ("content-digest");created=${values.timestamp};alg="${values.algorithm}";keyid="${values.keyId}"`
