@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.1.11
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.10...v0.1.11)
+
+### 🚀 Enhancements
+
+- Add mailchannels validator ([#11](https://github.com/Yizack/nuxt-webhook-validators/pull/11))
+
+### 🏡 Chore
+
+- **nuxt:** Use sha256 utils helper ([1298799](https://github.com/Yizack/nuxt-webhook-validators/commit/1298799))
+- **test:** Add missing await ([c97ef20](https://github.com/Yizack/nuxt-webhook-validators/commit/c97ef20))
+
+### ✅ Tests
+
+- Iterate simulation events + generate key pairs before testing ([7373ea9](https://github.com/Yizack/nuxt-webhook-validators/commit/7373ea9))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.1.10
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.9...v0.1.10)
