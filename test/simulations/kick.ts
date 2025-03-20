@@ -3,13 +3,13 @@ import { Buffer } from 'node:buffer'
 import { $fetch } from '@nuxt/test-utils/e2e'
 import { RSASSA_PKCS1_v1_5_SHA256, encoder, stripPemHeaders } from '../../src/runtime/server/lib/helpers'
 // @ts-expect-error generated on test command
-import keys from '../fixtures/basic/test-keys.json'
+import { rsaKeys } from '../fixtures/basic/test-keys.json'
 
 const body = 'testBody'
 const messageId = 'testMessageId'
 
 export const simulateKickEvent = async () => {
-  const privateKeyBuffer = Buffer.from(stripPemHeaders(keys.privateKey), 'base64')
+  const privateKeyBuffer = Buffer.from(stripPemHeaders(rsaKeys.privateKey), 'base64')
   const privateKey = await subtle.importKey('pkcs8', privateKeyBuffer, RSASSA_PKCS1_v1_5_SHA256, false, ['sign'])
 
   const timestamp = Math.floor(Date.now() / 1000)
