@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.2.0
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.11...v0.2.0)
+
+### 📦 Build
+
+- ⚠️  Remove `.cjs` and update module builder + deps ([1ab6932](https://github.com/Yizack/nuxt-webhook-validators/commit/1ab6932))
+
+#### ⚠️ Breaking Changes
+
+- ⚠️  Remove `.cjs` and update module builder + deps ([1ab6932](https://github.com/Yizack/nuxt-webhook-validators/commit/1ab6932))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.1.11
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.10...v0.1.11)
