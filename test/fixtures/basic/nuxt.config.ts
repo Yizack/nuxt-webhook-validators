@@ -13,6 +13,9 @@ export default defineNuxtConfig({
       dropbox: {
         appSecret: 'testDropboxAppSecret',
       },
+      fourthwall: {
+        secretKey: 'testFourthwallSecretKey',
+      },
       github: {
         secretKey: 'testGitHubSecretKey',
       },
