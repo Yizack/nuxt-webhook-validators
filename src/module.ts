@@ -28,6 +28,10 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.dropbox = defu(runtimeConfig.webhook.dropbox, {
       appSecret: '',
     })
+    // Fourthwall Webhook
+    runtimeConfig.webhook.fourthwall = defu(runtimeConfig.webhook.fourthwall, {
+      secretKey: '',
+    })
     // GitHub Webhook
     runtimeConfig.webhook.github = defu(runtimeConfig.webhook.github, {
       secretKey: '',

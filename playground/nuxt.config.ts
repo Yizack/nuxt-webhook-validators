@@ -11,6 +11,12 @@ export default defineNuxtConfig({
       discord: {
         publicKey: '',
       },
+      dropbox: {
+        appSecret: '',
+      },
+      fourthwall: {
+        secretKey: '',
+      },
       github: {
         secretKey: '',
       },
