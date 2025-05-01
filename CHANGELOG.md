@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.2.1
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.0...v0.2.1)
+
+### 🚀 Enhancements
+
+- Add fourthwall webhook validator ([#12](https://github.com/Yizack/nuxt-webhook-validators/pull/12))
+
+### 📖 Documentation
+
+- Fix nuxt logo in badges ([a380ddb](https://github.com/Yizack/nuxt-webhook-validators/commit/a380ddb))
+
+### 🤖 CI
+
+- Replace pnpm action with corepack ([ed8cd7b](https://github.com/Yizack/nuxt-webhook-validators/commit/ed8cd7b))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.2.0
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.1.11...v0.2.0)
