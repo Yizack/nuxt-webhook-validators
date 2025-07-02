@@ -18,6 +18,7 @@ export default createConfigForNuxt({
   .append(
     {
       rules: {
+        'import/consistent-type-specifier-style': 'off',
         'vue/multi-word-component-names': 'off',
         'vue/max-attributes-per-line': 'off',
         'vue/singleline-html-element-content-newline': 'off',
