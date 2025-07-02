@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.2.2
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.1...v0.2.2)
+
+### 🏡 Chore
+
+- Update nuxt and deps ([e096b8c](https://github.com/Yizack/nuxt-webhook-validators/commit/e096b8c))
+- **lint:** Disable consistent-type-specifier-style rule ([7c96f76](https://github.com/Yizack/nuxt-webhook-validators/commit/7c96f76))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.2.1
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.0...v0.2.1)
