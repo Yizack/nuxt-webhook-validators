@@ -1,6 +1,27 @@
 # Changelog
 
 
+## v0.2.3
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.2...v0.2.3)
+
+### 🩹 Fixes
+
+- **types:** Handle undefined cases ([b9359ed](https://github.com/Yizack/nuxt-webhook-validators/commit/b9359ed))
+
+### 🏡 Chore
+
+- Move pnpm .npmrc settings to pnpm-workspace.yaml ([d95adfc](https://github.com/Yizack/nuxt-webhook-validators/commit/d95adfc))
+- Update to nuxt v4 ([a27f487](https://github.com/Yizack/nuxt-webhook-validators/commit/a27f487))
+
+### 🤖 CI
+
+- Update autofix-ci ([aea8a63](https://github.com/Yizack/nuxt-webhook-validators/commit/aea8a63))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.2.2
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.1...v0.2.2)
