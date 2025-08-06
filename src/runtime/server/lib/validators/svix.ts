@@ -25,6 +25,8 @@ export const isValidSvixWebhook = async (event: H3Event): Promise<boolean> => {
 
   const payload = `${webhookId}.${webhookTimestamp}.${body}`
   const secretKey = config.secretKey.split('_')[1]
+
+  if (!secretKey) return false
   const signatureEntries = webhookSignature.split(' ')
 
   for (const signatureEntry of signatureEntries) {

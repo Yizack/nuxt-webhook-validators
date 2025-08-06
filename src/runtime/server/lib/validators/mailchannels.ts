@@ -12,6 +12,8 @@ const validateContentDigest = async (header: string, body: string) => {
   if (!match) return false
 
   const [, algorithm, hash] = match
+  if (!algorithm || !hash) return false
+
   const normalizedAlgorithm = algorithm.replace('-', '').toLowerCase()
 
   if (!['sha256'].includes(normalizedAlgorithm)) return false
@@ -20,7 +22,7 @@ const validateContentDigest = async (header: string, body: string) => {
 
 const extractSignature = (signatureHeader: string): string | null => {
   const signatureMatch = signatureHeader.match(/sig_\d+=:([^:]+):/)
-  return signatureMatch ? signatureMatch[1] : null
+  return signatureMatch && signatureMatch[1] ? signatureMatch[1] : null
 }
 
 const extractInputValues = (header: string) => {
@@ -31,7 +33,7 @@ const extractInputValues = (header: string) => {
 
   return {
     name: match[1],
-    timestamp: Number.parseInt(match[3], 10),
+    timestamp: Number.parseInt(match[3] || '', 10),
     algorithm: match[4],
     keyId: match[5],
   }
