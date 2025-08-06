@@ -71,5 +71,4 @@ export default defineNuxtConfig({
     },
   },
   serverDir: '../../../playground/server',
-  future: { compatibilityVersion: 4 },
 })
