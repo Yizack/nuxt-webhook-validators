@@ -1,6 +1,25 @@
 # Changelog
 
 
+## v0.2.4
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.3...v0.2.4)
+
+### 🏡 Chore
+
+- **playground:** Add twitch webhook callback verification ([#13](https://github.com/Yizack/nuxt-webhook-validators/pull/13))
+- Adjust package scripts ([698200f](https://github.com/Yizack/nuxt-webhook-validators/commit/698200f))
+
+### 🤖 CI
+
+- Update to latest checkout and node actions ([bab0dde](https://github.com/Yizack/nuxt-webhook-validators/commit/bab0dde))
+- Use npm trusted publishing ([eaf6f0b](https://github.com/Yizack/nuxt-webhook-validators/commit/eaf6f0b))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+- Ahmed Rangel ([@ahmedrangel](https://github.com/ahmedrangel))
+
 ## v0.2.3
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.2...v0.2.3)
