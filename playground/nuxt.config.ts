@@ -8,6 +8,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     webhook: {
+      brevo: {
+        token: '',
+      },
       discord: {
         publicKey: '',
       },

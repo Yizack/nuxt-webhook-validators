@@ -1,3 +1,4 @@
+export { simulateBrevoEvent } from './simulations/brevo'
 export { simulateDiscordEvent } from './simulations/discord'
 export { simulateDropboxEvent } from './simulations/dropbox'
 export { simulateFourthwallEvent } from './simulations/fourthwall'

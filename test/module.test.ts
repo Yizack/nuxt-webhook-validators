@@ -50,9 +50,8 @@ describe('webhooks', async () => {
   // Iterate over the `events` object dynamically
   const events = await import('./events')
   for (const [methodName, simulation] of Object.entries(events)) {
-    const match = methodName.match(/^simulate(.*)Event$/)
-    if (!match) continue
-    const webhookName = match[1]
+    const [, webhookName] = methodName.match(/^simulate(.*)Event$/) || []
+    if (!webhookName) continue
     it(`valid ${webhookName} webhook`, async () => {
       const response = await simulation()
       expect(response).toStrictEqual(validWebhook)
