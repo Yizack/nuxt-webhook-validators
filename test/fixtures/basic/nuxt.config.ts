@@ -46,9 +46,9 @@ export default defineNuxtConfig({
         webhookId: 'testPaddleWebhookId',
       },
       paypal: {
-        clientId: '',
-        secretKey: '',
-        webhookId: '',
+        clientId: 'testPayPalClientId',
+        secretKey: 'testPayPalSecretKey',
+        webhookId: 'testPayPalWebhookId',
       },
       resend: {
         secretKey: 'test_c3ZpeFNlY3JldEtleQ==',

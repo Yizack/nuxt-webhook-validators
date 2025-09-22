@@ -28,10 +28,6 @@ describe('ensureConfiguration method', () => {
     if (!nuxtConfig.runtimeConfig?.webhook) return
     for (const [key, config] of Object.entries(nuxtConfig.runtimeConfig.webhook)) {
       const provider = key as keyof RuntimeConfig['webhook']
-      if (provider === 'paypal') {
-        expect(() => ensureConfiguration(provider)).toThrowError()
-        continue
-      }
       const resultConfig = ensureConfiguration(provider)
       expect(resultConfig).toStrictEqual(config)
     }
