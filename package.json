@@ -1,6 +1,6 @@
 {
   "name": "nuxt-webhook-validators",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A simple nuxt module that works on the edge to easily validate incoming webhooks from different services.",
   "keywords": [
     "nuxt",

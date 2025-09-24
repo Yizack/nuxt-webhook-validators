@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.2.5
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.4...v0.2.5)
+
+### 🚀 Enhancements
+
+- Add brevo webhook validator ([6fca667](https://github.com/Yizack/nuxt-webhook-validators/commit/6fca667))
+
+### ✅ Tests
+
+- **paypal:** Add fake credentials ([ac4e624](https://github.com/Yizack/nuxt-webhook-validators/commit/ac4e624))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.2.4
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.3...v0.2.4)
