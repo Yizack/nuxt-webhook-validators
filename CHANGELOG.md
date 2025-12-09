@@ -1,6 +1,22 @@
 # Changelog
 
 
+## v0.2.6
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.5...v0.2.6)
+
+### 🚀 Enhancements
+
+- Add Slack webhook validator ([5e78215](https://github.com/Yizack/nuxt-webhook-validators/commit/5e78215))
+
+### 🏡 Chore
+
+- Update nuxt to version `4.2.2` ([8b4fb48](https://github.com/Yizack/nuxt-webhook-validators/commit/8b4fb48))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.2.5
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.4...v0.2.5)
