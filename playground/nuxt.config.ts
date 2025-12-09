@@ -57,6 +57,9 @@ export default defineNuxtConfig({
       shopify: {
         secretKey: '',
       },
+      slack: {
+        secretKey: '',
+      },
       stripe: {
         secretKey: '',
       },

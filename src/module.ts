@@ -82,6 +82,10 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.shopify = defu(runtimeConfig.webhook.shopify, {
       secretKey: '',
     })
+    // Slack Webhook
+    runtimeConfig.webhook.slack = defu(runtimeConfig.webhook.slack, {
+      secretKey: '',
+    })
     // Stripe Webhook
     runtimeConfig.webhook.stripe = defu(runtimeConfig.webhook.stripe, {
       secretKey: '',
