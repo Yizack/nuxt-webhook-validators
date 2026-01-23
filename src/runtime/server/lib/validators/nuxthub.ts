@@ -1,5 +1,5 @@
-import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { ensureConfiguration, sha256 } from '../helpers'
+import { type H3Event, getRequestHeaders } from 'h3'
+import { ensureConfiguration, readRawBodyClone, sha256 } from '../helpers'
 
 const NUXTHUB_SIGNATURE = 'x-nuxthub-signature'
 
@@ -13,7 +13,7 @@ export const isValidNuxtHubWebhook = async (event: H3Event): Promise<boolean> =>
   const config = ensureConfiguration('nuxthub', event)
 
   const headers = getRequestHeaders(event)
-  const body = await readRawBody(event)
+  const body = await readRawBodyClone(event)
 
   const webhookSignature = headers[NUXTHUB_SIGNATURE]
 

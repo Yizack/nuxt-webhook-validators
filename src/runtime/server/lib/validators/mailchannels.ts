@@ -1,5 +1,5 @@
-import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { verifyPublicSignature, ED25519, validateSha256, stripPemHeaders } from '../helpers'
+import { type H3Event, getRequestHeaders } from 'h3'
+import { verifyPublicSignature, ED25519, validateSha256, stripPemHeaders, readRawBodyClone } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const MAILCHANNELS_CONTENT_DIGEST = 'content-digest'
@@ -50,7 +50,7 @@ export const isValidMailChannelsWebhook = async (event: H3Event): Promise<boolea
   const config = useRuntimeConfig(event).webhook.mailchannels
 
   const headers = getRequestHeaders(event)
-  const body = await readRawBody(event)
+  const body = await readRawBodyClone(event)
 
   const contentDigest = headers[MAILCHANNELS_CONTENT_DIGEST]
   const messageSignature = headers[MAILCHANNELS_SIGNATURE]

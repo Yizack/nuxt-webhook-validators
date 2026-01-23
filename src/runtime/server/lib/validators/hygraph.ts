@@ -1,5 +1,5 @@
-import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, HMAC_SHA256, ensureConfiguration } from '../helpers'
+import { type H3Event, getRequestHeaders } from 'h3'
+import { computeSignature, HMAC_SHA256, ensureConfiguration, readRawBodyClone } from '../helpers'
 
 const DEFAULT_TOLERANCE = 300 // 5 minutes tolerance
 const HYGRAPH_SIGNATURE = 'gcms-signature'
@@ -38,7 +38,7 @@ export const isValidHygraphWebhook = async (event: H3Event): Promise<boolean> =>
   const config = ensureConfiguration('hygraph', event)
 
   const headers = getRequestHeaders(event)
-  const body = await readRawBody(event)
+  const body = await readRawBodyClone(event)
 
   const hygraphSignature = headers[HYGRAPH_SIGNATURE]
 

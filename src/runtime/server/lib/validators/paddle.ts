@@ -1,5 +1,5 @@
-import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, HMAC_SHA256, ensureConfiguration } from '../helpers'
+import { type H3Event, getRequestHeaders } from 'h3'
+import { computeSignature, HMAC_SHA256, ensureConfiguration, readRawBodyClone } from '../helpers'
 
 const MAX_VALID_TIME_DIFFERENCE = 5
 const PADDLE_SIGNATURE = 'paddle-signature'
@@ -29,7 +29,7 @@ export const isValidPaddleWebhook = async (event: H3Event): Promise<boolean> => 
   const config = ensureConfiguration('paddle', event)
 
   const headers = getRequestHeaders(event)
-  const body = await readRawBody(event)
+  const body = await readRawBodyClone(event)
 
   const paddleSignature = headers[PADDLE_SIGNATURE]
 

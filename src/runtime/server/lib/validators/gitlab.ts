@@ -1,5 +1,5 @@
-import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { ensureConfiguration } from '../helpers'
+import { type H3Event, getRequestHeaders } from 'h3'
+import { ensureConfiguration, readRawBodyClone } from '../helpers'
 
 const GITLAB_TOKEN = 'X-Gitlab-Token'.toLowerCase()
 
@@ -13,7 +13,7 @@ export const isValidGitLabWebhook = async (event: H3Event): Promise<boolean> => 
   const config = ensureConfiguration('gitlab', event)
 
   const headers = getRequestHeaders(event)
-  const body = await readRawBody(event)
+  const body = await readRawBodyClone(event)
 
   const header = headers[GITLAB_TOKEN]
 

@@ -1,5 +1,5 @@
-import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, HMAC_SHA256, ensureConfiguration } from '../helpers'
+import { type H3Event, getRequestHeaders } from 'h3'
+import { computeSignature, HMAC_SHA256, ensureConfiguration, readRawBodyClone } from '../helpers'
 
 const FOURTHWALL_SIGNATURE = 'X-Fourthwall-Hmac-SHA256'.toLowerCase()
 
@@ -13,7 +13,7 @@ export const isValidFourthwallWebhook = async (event: H3Event): Promise<boolean>
   const config = ensureConfiguration('fourthwall', event)
 
   const headers = getRequestHeaders(event)
-  const body = await readRawBody(event)
+  const body = await readRawBodyClone(event)
 
   const webhookSignature = headers[FOURTHWALL_SIGNATURE]
 

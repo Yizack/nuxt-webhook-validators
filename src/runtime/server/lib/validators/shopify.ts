@@ -1,5 +1,5 @@
-import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, HMAC_SHA256, ensureConfiguration } from '../helpers'
+import { type H3Event, getRequestHeaders } from 'h3'
+import { computeSignature, HMAC_SHA256, ensureConfiguration, readRawBodyClone } from '../helpers'
 
 const SHOPIFY_SIGNATURE = 'X-Shopify-Hmac-Sha256'.toLowerCase()
 
@@ -13,7 +13,7 @@ export const isValidShopifyWebhook = async (event: H3Event): Promise<boolean> =>
   const config = ensureConfiguration('shopify', event)
 
   const headers = getRequestHeaders(event)
-  const body = await readRawBody(event)
+  const body = await readRawBodyClone(event)
 
   const webhookSignature = headers[SHOPIFY_SIGNATURE]
 

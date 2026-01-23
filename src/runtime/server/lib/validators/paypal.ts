@@ -1,5 +1,5 @@
-import { type H3Event, getRequestHeaders, readBody } from 'h3'
-import { ensureConfiguration } from '../helpers'
+import { type H3Event, getRequestHeaders } from 'h3'
+import { ensureConfiguration, readBodyClone } from '../helpers'
 
 const baseAPI = import.meta.dev ? 'https://api-m.sandbox.paypal.com/v1' : 'https://api-m.paypal.com/v1'
 
@@ -13,7 +13,7 @@ export const isValidPaypalWebhook = async (event: H3Event): Promise<boolean> => 
   const config = ensureConfiguration('paypal', event)
 
   const headers = getRequestHeaders(event)
-  const body = await readBody(event)
+  const body = await readBodyClone(event)
 
   if (!body || !headers) return false
 

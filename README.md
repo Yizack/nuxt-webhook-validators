@@ -102,11 +102,13 @@ Go to [playground/.env.example](./playground/.env.example) or [playground/nuxt.c
 
 You can add your favorite webhook validator by creating a new file in  [src/runtime/server/lib/validators/](./src/runtime/server/lib/validators/)
 
-## Example
+## Examples
+
+### Basic
 
 Validate a GitHub webhook in a server API route.
 
-`~/server/api/webhooks/github.post.ts`
+`~~/server/api/webhooks/github.post.ts`
 
 ```js
 export default defineEventHandler(async (event) => {
@@ -117,6 +119,25 @@ export default defineEventHandler(async (event) => {
   }
 
   // Some logic...
+
+  return { isValidWebhook }
+})
+```
+
+## Reading the request body
+
+Make sure to read the body after validating the webhook, as most validators rely on a caching/cloning of the raw body to compute the signature and validate the webhook.
+
+```js
+export default defineEventHandler(async (event) => {
+  const isValidWebhook = await isValidGitHubWebhook(event)
+
+  if (!isValidWebhook) {
+    throw createError({ status: 401, message: 'Unauthorized: webhook is not valid' })
+  }
+
+  // Make sure to read the body after validating the webhook
+  const body = await readBody(event)
 
   return { isValidWebhook }
 })
