@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.2.7
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.6...v0.2.7)
+
+### 🩹 Fixes
+
+- Request body reusability ([#15](https://github.com/Yizack/nuxt-webhook-validators/pull/15))
+
+### 💅 Refactors
+
+- Error handling to use `status`instead of `statusCode` ([d8db183](https://github.com/Yizack/nuxt-webhook-validators/commit/d8db183))
+
+### 🏡 Chore
+
+- Update nuxt and all deps ([e81ceeb](https://github.com/Yizack/nuxt-webhook-validators/commit/e81ceeb))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.2.6
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.5...v0.2.6)
