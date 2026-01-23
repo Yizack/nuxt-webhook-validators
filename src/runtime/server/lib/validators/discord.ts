@@ -1,5 +1,5 @@
-import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { verifyPublicSignature, ED25519, ensureConfiguration } from '../helpers'
+import { type H3Event, getRequestHeaders } from 'h3'
+import { verifyPublicSignature, ED25519, ensureConfiguration, readRawBodyClone } from '../helpers'
 
 const DISCORD_SIGNATURE = 'x-signature-ed25519'
 const DISCORD_SIGNATURE_TIMESTAMP = 'x-signature-timestamp'
@@ -14,7 +14,7 @@ export const isValidDiscordWebhook = async (event: H3Event): Promise<boolean> =>
   const config = ensureConfiguration('discord', event)
 
   const headers = getRequestHeaders(event)
-  const body = await readRawBody(event)
+  const body = await readRawBodyClone(event)
 
   const webhookSignature = headers[DISCORD_SIGNATURE]
   const webhookTimestamp = headers[DISCORD_SIGNATURE_TIMESTAMP]

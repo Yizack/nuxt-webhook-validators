@@ -1,7 +1,7 @@
 import { subtle, type webcrypto } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 import { snakeCase } from 'scule'
-import { type H3Event, createError } from 'h3'
+import { type H3Event, createError, readRawBody } from 'h3'
 import type { RuntimeConfig } from '@nuxt/schema'
 import { useRuntimeConfig } from '#imports'
 
@@ -89,4 +89,18 @@ export const validateSha256 = async (
   }>,
 ) => {
   return hash === await sha256(payload, options?.encoding)
+}
+
+export const readRawBodyClone = async (event: H3Event): Promise<string | undefined> => {
+  const hasClone = 'clone' in (event.req ?? {}) // prepare h3 v2 support
+  const body = hasClone ? await (event.req as unknown as Request).clone().text() : await readRawBody(event)
+  if (!hasClone) {
+    (event as { _requestBody?: string })._requestBody = body
+  }
+  return body
+}
+
+export const readBodyClone = async <T = unknown>(event: H3Event): Promise<T | undefined> => {
+  const rawBody = await readRawBodyClone(event)
+  return rawBody ? JSON.parse(rawBody) as T : undefined
 }

@@ -1,5 +1,5 @@
-import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { verifyPublicSignature, RSASSA_PKCS1_v1_5_SHA256, stripPemHeaders } from '../helpers'
+import { type H3Event, getRequestHeaders } from 'h3'
+import { verifyPublicSignature, RSASSA_PKCS1_v1_5_SHA256, stripPemHeaders, readRawBodyClone } from '../helpers'
 import { useRuntimeConfig } from '#imports'
 
 const KICK_MESSAGE_ID = 'Kick-Event-Message-Id'.toLowerCase()
@@ -27,7 +27,7 @@ export const isValidKickWebhook = async (event: H3Event): Promise<boolean> => {
   const config = useRuntimeConfig(event).webhook.kick
 
   const headers = getRequestHeaders(event)
-  const body = await readRawBody(event)
+  const body = await readRawBodyClone(event)
 
   const messageId = headers[KICK_MESSAGE_ID]
   const messageTimestamp = headers[KICK_MESSAGE_TIMESTAMP]

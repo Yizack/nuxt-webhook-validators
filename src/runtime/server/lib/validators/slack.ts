@@ -1,5 +1,5 @@
-import { type H3Event, getRequestHeaders, readRawBody } from 'h3'
-import { computeSignature, HMAC_SHA256, ensureConfiguration } from '../helpers'
+import { type H3Event, getRequestHeaders } from 'h3'
+import { computeSignature, HMAC_SHA256, ensureConfiguration, readRawBodyClone } from '../helpers'
 
 const SLACK_SIGNATURE = 'X-Slack-Signature'.toLowerCase()
 const SLACK_TIMESTAMP = 'X-Slack-Request-Timestamp'.toLowerCase()
@@ -15,7 +15,7 @@ export const isValidSlackWebhook = async (event: H3Event): Promise<boolean> => {
   const config = ensureConfiguration('slack', event)
 
   const headers = getRequestHeaders(event)
-  const body = await readRawBody(event)
+  const body = await readRawBodyClone(event)
 
   const fullSignature = headers[SLACK_SIGNATURE]
   const timestamp = headers[SLACK_TIMESTAMP]
