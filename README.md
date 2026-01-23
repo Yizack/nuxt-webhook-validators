@@ -133,7 +133,7 @@ export default defineEventHandler(async (event) => {
   const isValidWebhook = await isValidGitHubWebhook(event)
 
   if (!isValidWebhook) {
-    throw createError({ statusCode: 401, message: 'Unauthorized: webhook is not valid' })
+    throw createError({ status: 401, message: 'Unauthorized: webhook is not valid' })
   }
 
   // Make sure to read the body after validating the webhook
