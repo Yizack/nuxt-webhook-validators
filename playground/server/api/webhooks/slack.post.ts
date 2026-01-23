@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
 
   const isValidWebhook = await isValidSlackWebhook(event)
 
-  if (!isValidWebhook) throw createError({ statusCode: 401, message: 'Unauthorized: webhook is not valid' })
+  if (!isValidWebhook) throw createError({ status: 401, message: 'Unauthorized: webhook is not valid' })
 
   return { isValidWebhook }
 })

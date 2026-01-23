@@ -68,7 +68,7 @@ export const ensureConfiguration = <T extends keyof RuntimeConfig['webhook']>(pr
   const errorMessage = `Missing ${environmentVariables.join(' or ')} env ${missingKeys.length > 1 ? 'variables' : 'variable'}.`
   console.error(errorMessage)
   throw createError({
-    statusCode: 500,
+    status: 500,
     message: errorMessage,
   })
 }
