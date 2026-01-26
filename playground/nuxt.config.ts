@@ -40,9 +40,6 @@ export default defineNuxtConfig({
       meta: {
         appSecret: '',
       },
-      nuxthub: {
-        secretKey: '',
-      },
       paddle: {
         webhookId: '',
       },
