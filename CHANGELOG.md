@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v0.2.8
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.7...v0.2.8)
+
+### 🏡 Chore
+
+- Remove NuxtHub webhook validator ([#16](https://github.com/Yizack/nuxt-webhook-validators/pull/16))
+- Update all deps ([5578974](https://github.com/Yizack/nuxt-webhook-validators/commit/5578974))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.2.7
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.6...v0.2.7)
