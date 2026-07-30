@@ -31,16 +31,18 @@
   ],
   "scripts": {
     "build": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt-module-build build",
-    "prepack": "pnpm build",
+    "prepack": "node --run build",
     "dev": "nuxt dev playground",
     "dev:build": "nuxt build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playground",
-    "release": "pnpm lint && pnpm build && pnpm test && changelogen --release && git push --follow-tags",
+    "release": "node --run checks && changelogen --release --push --no-github",
+    "release:github": "changelogen gh release",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest run --reporter=verbose",
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc -b --noEmit",
-    "test:watch": "vitest watch"
+    "test:watch": "vitest watch",
+    "checks": "node --run lint && node --run test && node --run test:types && node --run build"
   },
   "dependencies": {
     "@nuxt/kit": "^4.5.1",
