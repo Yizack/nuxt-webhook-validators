@@ -8,6 +8,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     webhook: {
+      bitbucket: {
+        secretKey: '',
+      },
       brevo: {
         token: '',
       },

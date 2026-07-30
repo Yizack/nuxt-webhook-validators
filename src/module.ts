@@ -20,6 +20,10 @@ export default defineNuxtModule<ModuleOptions>({
     const runtimeConfig = nuxt.options.runtimeConfig
     // Webhook settings
     runtimeConfig.webhook = defu(runtimeConfig.webhook, {})
+    // Bitbucket Webhook
+    runtimeConfig.webhook.bitbucket = defu(runtimeConfig.webhook.bitbucket, {
+      secretKey: '',
+    })
     // Brevo Webhook
     runtimeConfig.webhook.brevo = defu(runtimeConfig.webhook.brevo, {
       token: '',
