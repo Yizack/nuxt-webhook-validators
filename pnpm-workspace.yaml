@@ -4,7 +4,6 @@ strictPeerDependencies: false
 packages:
   - "playground"
 
-ignoredBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - unrs-resolver
+allowBuilds:
+  esbuild: false
+  unrs-resolver: false
