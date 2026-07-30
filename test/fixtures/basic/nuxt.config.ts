@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   modules: [myModule],
   runtimeConfig: {
     webhook: {
+      bitbucket: {
+        secretKey: 'testBitbucketSecretKey',
+      },
       brevo: {
         token: 'testToken',
       },
