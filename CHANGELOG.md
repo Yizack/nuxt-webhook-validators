@@ -1,6 +1,26 @@
 # Changelog
 
 
+## v0.2.9
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.8...v0.2.9)
+
+### 🚀 Enhancements
+
+- Add Bitbucket webhook validator ([#17](https://github.com/Yizack/nuxt-webhook-validators/pull/17))
+
+### 🏡 Chore
+
+- Update all deps ([0090079](https://github.com/Yizack/nuxt-webhook-validators/commit/0090079))
+
+### 🤖 CI
+
+- **release:** Automate github release ([43f3301](https://github.com/Yizack/nuxt-webhook-validators/commit/43f3301))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.2.8
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.7...v0.2.8)
