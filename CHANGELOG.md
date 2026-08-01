@@ -1,6 +1,37 @@
 # Changelog
 
 
+## v0.2.10
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.9...v0.2.10)
+
+### 🚀 Enhancements
+
+- Add Vercel webhook validator ([#18](https://github.com/Yizack/nuxt-webhook-validators/pull/18))
+- Add Netlify webhook validator ([#20](https://github.com/Yizack/nuxt-webhook-validators/pull/20))
+- Add Cal.com webhook validator ([#21](https://github.com/Yizack/nuxt-webhook-validators/pull/21))
+
+### 💅 Refactors
+
+- **utils:** Split helpers into modular utility files ([fbffe49](https://github.com/Yizack/nuxt-webhook-validators/commit/fbffe49))
+
+### 📖 Documentation
+
+- **readme:** Fix formatting ([7597a66](https://github.com/Yizack/nuxt-webhook-validators/commit/7597a66))
+
+### 🏡 Chore
+
+- **playground:** Use post method for bitbucket endpoint ([#19](https://github.com/Yizack/nuxt-webhook-validators/pull/19))
+- Add compatibilityDate to playground and test fixture ([e96ff79](https://github.com/Yizack/nuxt-webhook-validators/commit/e96ff79))
+
+### ✅ Tests
+
+- **simulations:** Support provider param in svix simulator ([e237ddd](https://github.com/Yizack/nuxt-webhook-validators/commit/e237ddd))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.2.9
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.8...v0.2.9)
