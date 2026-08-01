@@ -28,7 +28,7 @@ This means that you cannot use this module with `nuxt generate`.
 
 1. Add nuxt-webhook-validators in your Nuxt project
 
-```
+```sh
 npx nuxi@latest module add webhook-validators
 ```
 
@@ -41,7 +41,6 @@ export default defineNuxtConfig({
   ],
 })
 ```
-
 
 ## Server utils
 
@@ -75,8 +74,7 @@ NUXT_WEBHOOK_<PROVIDER>_<REQUIRED_PROPERTY> = ""
 
 Go to [playground/.env.example](./playground/.env.example) or [playground/nuxt.config.ts](./playground/nuxt.config.ts) to see a list of all the available properties needed for each provider.
 
-
-#### Supported webhook validators:
+#### Supported webhook validators
 
 - Bitbucket
 - Brevo
