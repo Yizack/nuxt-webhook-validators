@@ -14,6 +14,9 @@ export default defineNuxtConfig({
       brevo: {
         token: '',
       },
+      calcom: {
+        secretKey: '',
+      },
       discord: {
         publicKey: '',
       },
