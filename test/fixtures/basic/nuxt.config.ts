@@ -83,4 +83,5 @@ export default defineNuxtConfig({
     },
   },
   serverDir: '../../../playground/server',
+  compatibilityDate: '2026-08-02',
 })
