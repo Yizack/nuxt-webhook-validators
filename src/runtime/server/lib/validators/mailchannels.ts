@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders } from 'h3'
-import { verifyPublicSignature, ED25519, validateSha256, stripPemHeaders, readRawBodyClone } from '../helpers'
+import { verifyPublicSignature, ED25519, validateSha256, stripPemHeaders, readRawBodyClone } from '../utils'
 import { useRuntimeConfig } from '#imports'
 
 const MAILCHANNELS_CONTENT_DIGEST = 'content-digest'

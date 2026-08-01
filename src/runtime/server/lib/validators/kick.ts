@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders } from 'h3'
-import { verifyPublicSignature, RSASSA_PKCS1_v1_5_SHA256, stripPemHeaders, readRawBodyClone } from '../helpers'
+import { verifyPublicSignature, RSASSA_PKCS1_v1_5_SHA256, stripPemHeaders, readRawBodyClone } from '../utils'
 import { useRuntimeConfig } from '#imports'
 
 const KICK_MESSAGE_ID = 'Kick-Event-Message-Id'.toLowerCase()

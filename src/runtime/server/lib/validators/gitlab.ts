@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders } from 'h3'
-import { ensureConfiguration, readRawBodyClone } from '../helpers'
+import { ensureConfiguration, readRawBodyClone } from '../utils'
 
 const GITLAB_TOKEN = 'X-Gitlab-Token'.toLowerCase()
 

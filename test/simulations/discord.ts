@@ -1,7 +1,7 @@
 import { subtle } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 import { $fetch } from '@nuxt/test-utils/e2e'
-import { encoder, ED25519 } from '../../src/runtime/server/lib/helpers'
+import { encoder, ED25519 } from '../../src/runtime/server/lib/utils'
 
 const body = { type: 0, data: 'testBody' }
 const privateKeyJwk: JsonWebKey = { key_ops: ['sign'], ext: true, crv: ED25519.name, d: 'YwlnnFf8D1xYAywudxu0velBWEmRSMdo6KJ-5b9sQbU', x: '_PRZT_VaWJin585UG5PcjOYYx6T6lqt-_RrCiQVxNFw', kty: 'OKP' }

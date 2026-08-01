@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders } from 'h3'
-import { computeSignature, HMAC_SHA256, ensureConfiguration, readRawBodyClone } from '../helpers'
+import { computeSignature, HMAC_SHA256, ensureConfiguration, readRawBodyClone } from '../utils'
 
 const TWITCH_MESSAGE_ID = 'Twitch-Eventsub-Message-Id'.toLowerCase()
 const TWITCH_MESSAGE_TIMESTAMP = 'Twitch-Eventsub-Message-Timestamp'.toLowerCase()

@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders } from 'h3'
-import { computeSignature, HMAC_SHA256, ensureConfiguration, readRawBodyClone } from '../helpers'
+import { computeSignature, HMAC_SHA256, ensureConfiguration, readRawBodyClone } from '../utils'
 
 const SLACK_SIGNATURE = 'X-Slack-Signature'.toLowerCase()
 const SLACK_TIMESTAMP = 'X-Slack-Request-Timestamp'.toLowerCase()

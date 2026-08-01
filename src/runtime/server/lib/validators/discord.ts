@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders } from 'h3'
-import { verifyPublicSignature, ED25519, ensureConfiguration, readRawBodyClone } from '../helpers'
+import { verifyPublicSignature, ED25519, ensureConfiguration, readRawBodyClone } from '../utils'
 
 const DISCORD_SIGNATURE = 'x-signature-ed25519'
 const DISCORD_SIGNATURE_TIMESTAMP = 'x-signature-timestamp'

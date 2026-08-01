@@ -1,5 +1,5 @@
 import type { H3Event } from 'h3'
-import { configContext } from '../helpers'
+import { configContext } from '../utils'
 import { isValidSvixWebhook } from './svix'
 
 /**

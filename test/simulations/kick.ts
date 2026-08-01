@@ -1,7 +1,7 @@
 import { subtle } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 import { $fetch } from '@nuxt/test-utils/e2e'
-import { RSASSA_PKCS1_v1_5_SHA256, encoder, stripPemHeaders } from '../../src/runtime/server/lib/helpers'
+import { RSASSA_PKCS1_v1_5_SHA256, encoder, stripPemHeaders } from '../../src/runtime/server/lib/utils'
 // @ts-expect-error generated on test command
 import { rsaKeys } from '../fixtures/basic/test-keys.json'
 

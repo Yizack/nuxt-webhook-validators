@@ -3,7 +3,7 @@ import { rm } from 'node:fs/promises'
 import { describe, it, expect, vi, afterAll } from 'vitest'
 import { $fetch, setup } from '@nuxt/test-utils/e2e'
 import type { RuntimeConfig } from '@nuxt/schema'
-import { ensureConfiguration } from '../src/runtime/server/lib/helpers'
+import { ensureConfiguration } from '../src/runtime/server/lib/utils'
 import { generateTestingKeys } from './genKeys'
 
 const validWebhook = { isValidWebhook: true }
@@ -34,11 +34,11 @@ describe('ensureConfiguration method', () => {
   })
 })
 
-describe('webhooks', async () => {
-  vi.mock('#imports', () => ({
-    useRuntimeConfig: vi.fn(() => nuxtConfig.runtimeConfig),
-  }))
+vi.mock('#imports', () => ({
+  useRuntimeConfig: vi.fn(() => nuxtConfig.runtimeConfig),
+}))
 
+describe('webhooks', async () => {
   afterAll(() => {
     rm(fileURLToPath(new URL('./fixtures/basic/test-keys.json', import.meta.url)))
   })

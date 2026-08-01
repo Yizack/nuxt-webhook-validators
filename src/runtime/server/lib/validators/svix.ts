@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders } from 'h3'
-import { computeSignature, HMAC_SHA256, ensureConfiguration, readRawBodyClone } from '../helpers'
+import { computeSignature, HMAC_SHA256, ensureConfiguration, readRawBodyClone } from '../utils'
 
 const SVIX_SIGNATURE_ID = 'svix-id'
 const SVIX_SIGNATURE = 'svix-signature'

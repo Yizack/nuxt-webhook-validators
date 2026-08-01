@@ -1,5 +1,5 @@
 import { $fetch } from '@nuxt/test-utils/e2e'
-import { createJwt, sha256 } from '../../src/runtime/server/lib/helpers'
+import { createJwt, sha256 } from '../../src/runtime/server/lib/utils'
 import nuxtConfig from '../fixtures/basic/nuxt.config'
 
 const body = { data: 'testBody' }

@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders } from 'h3'
-import { ensureConfiguration, readBodyClone } from '../helpers'
+import { ensureConfiguration, readBodyClone } from '../utils'
 
 const baseAPI = import.meta.dev ? 'https://api-m.sandbox.paypal.com/v1' : 'https://api-m.paypal.com/v1'
 

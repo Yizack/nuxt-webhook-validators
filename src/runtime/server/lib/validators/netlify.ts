@@ -1,5 +1,5 @@
 import { type H3Event, getRequestHeaders } from 'h3'
-import { ensureConfiguration, readRawBodyClone, validateSha256, verifyJwt } from '../helpers'
+import { ensureConfiguration, readRawBodyClone, validateSha256, verifyJwt } from '../utils'
 
 const NETLIFY_SIGNATURE = 'X-Webhook-Signature'.toLowerCase()
 const ISSUER = 'netlify'

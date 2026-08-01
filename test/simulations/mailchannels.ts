@@ -1,7 +1,7 @@
 import { subtle } from 'node:crypto'
 import { Buffer } from 'node:buffer'
 import { $fetch } from '@nuxt/test-utils/e2e'
-import { ED25519, encoder, stripPemHeaders, sha256 } from '../../src/runtime/server/lib/helpers'
+import { ED25519, encoder, stripPemHeaders, sha256 } from '../../src/runtime/server/lib/utils'
 // @ts-expect-error generated on test command
 import { ed25519Keys } from '../fixtures/basic/test-keys.json'
 
