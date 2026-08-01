@@ -1,5 +1,6 @@
 export { simulateBitbucketEvent } from './simulations/bitbucket'
 export { simulateBrevoEvent } from './simulations/brevo'
+export { simulateCalcomEvent } from './simulations/calcom'
 export { simulateDiscordEvent } from './simulations/discord'
 export { simulateDropboxEvent } from './simulations/dropbox'
 export { simulateFourthwallEvent } from './simulations/fourthwall'

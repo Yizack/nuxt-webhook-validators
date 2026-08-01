@@ -28,6 +28,10 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.brevo = defu(runtimeConfig.webhook.brevo, {
       token: '',
     })
+    // Cal.com Webhook
+    runtimeConfig.webhook.calcom = defu(runtimeConfig.webhook.calcom, {
+      secretKey: '',
+    })
     // Discord Webhook
     runtimeConfig.webhook.discord = defu(runtimeConfig.webhook.discord, {
       publicKey: '',
