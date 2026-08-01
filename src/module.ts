@@ -52,6 +52,10 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.heroku = defu(runtimeConfig.webhook.heroku, {
       secretKey: '',
     })
+    // Hygraph Webhook
+    runtimeConfig.webhook.hygraph = defu(runtimeConfig.webhook.hygraph, {
+      secretKey: '',
+    })
     // Kick Webhook
     runtimeConfig.webhook.kick = defu(runtimeConfig.webhook.kick, {
       publicKey: '',
@@ -73,6 +77,10 @@ export default defineNuxtModule<ModuleOptions>({
       clientId: '',
       secretKey: '',
       webhookId: '',
+    })
+    // Polar Webhook
+    runtimeConfig.webhook.polar = defu(runtimeConfig.webhook.polar, {
+      secretKey: '',
     })
     // Resend Webhook
     runtimeConfig.webhook.resend = defu(runtimeConfig.webhook.resend, {
@@ -98,12 +106,8 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.twitch = defu(runtimeConfig.webhook.twitch, {
       secretKey: '',
     })
-    // Hygraph Webhook
-    runtimeConfig.webhook.hygraph = defu(runtimeConfig.webhook.hygraph, {
-      secretKey: '',
-    })
-    // Polar Webhook
-    runtimeConfig.webhook.polar = defu(runtimeConfig.webhook.polar, {
+    // Vercel Webhook
+    runtimeConfig.webhook.vercel = defu(runtimeConfig.webhook.vercel, {
       secretKey: '',
     })
   },
