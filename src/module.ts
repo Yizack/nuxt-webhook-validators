@@ -68,6 +68,10 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.meta = defu(runtimeConfig.webhook.meta, {
       appSecret: '',
     })
+    // Netlify Webhook
+    runtimeConfig.webhook.netlify = defu(runtimeConfig.webhook.netlify, {
+      secretKey: '',
+    })
     // Paddle Webhook
     runtimeConfig.webhook.paddle = defu(runtimeConfig.webhook.paddle, {
       webhookId: '',
