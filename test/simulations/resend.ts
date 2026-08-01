@@ -3,4 +3,4 @@ import { simulateSvixEvent } from './svix'
 
 const secretKey = nuxtConfig.runtimeConfig?.webhook?.resend?.secretKey
 
-export const simulateResendEvent = () => simulateSvixEvent(secretKey)
+export const simulateResendEvent = () => simulateSvixEvent(secretKey, 'resend')

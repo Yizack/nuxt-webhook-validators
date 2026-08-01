@@ -8,7 +8,7 @@ const body = 'testBody'
 const webhookId = 'testSvixMessageId'
 const secretKey = nuxtConfig.runtimeConfig?.webhook?.svix?.secretKey
 
-export const simulateSvixEvent = async (key: string = secretKey!) => {
+export const simulateSvixEvent = async (key: string = secretKey!, provider = 'svix') => {
   const timestamp = Math.floor(Date.now() / 1000).toString()
   const payload = `${webhookId}.${timestamp}.${body}`
   const secretKeyBase64 = key.split('_')[1]!
@@ -24,7 +24,7 @@ export const simulateSvixEvent = async (key: string = secretKey!) => {
     'svix-timestamp': timestamp,
   }
 
-  return $fetch<{ isValidWebhook: boolean }>('/api/webhooks/svix', {
+  return $fetch<{ isValidWebhook: boolean }>(`/api/webhooks/${provider}`, {
     method: 'POST',
     headers,
     body,
