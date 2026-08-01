@@ -32,6 +32,9 @@ export default defineNuxtConfig({
       heroku: {
         secretKey: '',
       },
+      hygraph: {
+        secretKey: '',
+      },
       kick: {
         // (Set in case Kick changes their public key)
         publicKey: '',
@@ -51,6 +54,9 @@ export default defineNuxtConfig({
         secretKey: '',
         webhookId: '',
       },
+      polar: {
+        secretKey: '',
+      },
       resend: {
         secretKey: '',
       },
@@ -69,10 +75,7 @@ export default defineNuxtConfig({
       twitch: {
         secretKey: '',
       },
-      hygraph: {
-        secretKey: '',
-      },
-      polar: {
+      vercel: {
         secretKey: '',
       },
     },

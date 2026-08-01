@@ -31,6 +31,9 @@ export default defineNuxtConfig({
       heroku: {
         secretKey: 'testHerokuSecretKey',
       },
+      hygraph: {
+        secretKey: 'testHygraphSecretKey',
+      },
       kick: {
         // Generated on test setup
         publicKey: rsaKeys.publicKey,
@@ -50,6 +53,9 @@ export default defineNuxtConfig({
         secretKey: 'testPayPalSecretKey',
         webhookId: 'testPayPalWebhookId',
       },
+      polar: {
+        secretKey: 'testPolarSecretKey',
+      },
       resend: {
         secretKey: 'test_c3ZpeFNlY3JldEtleQ==',
       },
@@ -68,11 +74,8 @@ export default defineNuxtConfig({
       twitch: {
         secretKey: 'testTwitchSecretKey',
       },
-      hygraph: {
-        secretKey: 'testHygraphSecretKey',
-      },
-      polar: {
-        secretKey: 'testPolarSecretKey',
+      vercel: {
+        secretKey: 'testVercelSecretKey',
       },
     },
   },
