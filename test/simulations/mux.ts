@@ -10,10 +10,10 @@ const webhookId = nuxtConfig.runtimeConfig?.webhook?.mux?.secretKey
 export const simulateMuxEvent = async () => {
   const timestamp = Math.floor(Date.now() / 1000)
   const signature = await subtle.importKey('raw', encoder.encode(webhookId), HMAC_SHA256, false, ['sign'])
-  const hmac = await subtle.sign(HMAC_SHA256.name, signature, encoder.encode(`${timestamp}:${body}`))
+  const hmac = await subtle.sign(HMAC_SHA256.name, signature, encoder.encode(`${timestamp}.${body}`))
   const computedHash = Buffer.from(hmac).toString('hex')
 
-  const validSignature = `v1=${computedHash};t=${timestamp}`
+  const validSignature = `t=${timestamp},v1=${computedHash}`
 
   const headers = { 'mux-signature': validSignature }
 
