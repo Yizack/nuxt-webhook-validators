@@ -48,6 +48,9 @@ export default defineNuxtConfig({
       meta: {
         appSecret: 'testMetaAppSecret',
       },
+      mux: {
+        secretKey: 'testMuxSecretKey',
+      },
       netlify: {
         secretKey: 'testNetlifySecretKey',
       },
