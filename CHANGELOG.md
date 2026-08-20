@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.2.11
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.10...v0.2.11)
+
+### 🚀 Enhancements
+
+- Add Mux webhook validator ([#22](https://github.com/Yizack/nuxt-webhook-validators/pull/22))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+
 ## v0.2.10
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.9...v0.2.10)
