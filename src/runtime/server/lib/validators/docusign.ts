@@ -11,7 +11,12 @@ const DOCUSIGN_AUTHORIZATION = 'authorization'
  * @returns {boolean} `true` if the webhook is valid, `false` otherwise
  */
 export const isValidDocusignWebhook = async (event: H3Event): Promise<boolean> => {
-  const config = ensureConfiguration('docusign', event)
+  const config = ensureConfiguration('docusign', event, {
+    matrix: [
+      ['secretKey'],
+      ['username', 'password'],
+    ],
+  })
 
   const headers = getRequestHeaders(event)
   const body = await readRawBodyClone(event)
@@ -25,14 +30,19 @@ export const isValidDocusignWebhook = async (event: H3Event): Promise<boolean> =
 
   const basicAuth = headers[DOCUSIGN_AUTHORIZATION]
 
-  // Validate basic authorization if provided in the configuration
-  if (basicAuth) {
-    const isValid = verifyBasicAuth(basicAuth, config.username, config.password)
+  let isValid = false
+
+  if (basicAuth && config.username && config.password) {
+    isValid = verifyBasicAuth(basicAuth, config.username, config.password)
     if (!isValid) return false
   }
 
-  if (!body || !webhookSignatures?.length) return false
+  if (config.secretKey) {
+    if (!body || !webhookSignatures?.length) return false
+    const computedHash = await computeSignature(config.secretKey, HMAC_SHA256, body, { encoding: 'base64' })
+    isValid = webhookSignatures.includes(computedHash)
+    if (!isValid) return false
+  }
 
-  const computedHash = await computeSignature(config.secretKey, HMAC_SHA256, body, { encoding: 'base64' })
-  return webhookSignatures.includes(computedHash)
+  return isValid
 }
