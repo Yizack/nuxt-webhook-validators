@@ -36,6 +36,12 @@ export default defineNuxtModule<ModuleOptions>({
     runtimeConfig.webhook.discord = defu(runtimeConfig.webhook.discord, {
       publicKey: '',
     })
+    // Docusign Webhook
+    runtimeConfig.webhook.docusign = defu(runtimeConfig.webhook.docusign, {
+      secretKey: '',
+      username: '',
+      password: '',
+    })
     // Dropbox Webhook
     runtimeConfig.webhook.dropbox = defu(runtimeConfig.webhook.dropbox, {
       appSecret: '',
