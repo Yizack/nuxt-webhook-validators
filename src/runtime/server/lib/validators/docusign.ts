@@ -30,19 +30,17 @@ export const isValidDocusignWebhook = async (event: H3Event): Promise<boolean> =
 
   const basicAuth = headers[DOCUSIGN_AUTHORIZATION]
 
-  let isValid = false
+  if (!(basicAuth && config.username && config.password) && !config.secretKey) return false
 
-  if (basicAuth && config.username && config.password) {
-    isValid = verifyBasicAuth(basicAuth, config.username, config.password)
-    if (!isValid) return false
-  }
+  if (basicAuth && config.username && config.password
+    && !verifyBasicAuth(basicAuth, config.username, config.password)
+  ) return false
 
   if (config.secretKey) {
     if (!body || !webhookSignatures?.length) return false
     const computedHash = await computeSignature(config.secretKey, HMAC_SHA256, body, { encoding: 'base64' })
-    isValid = webhookSignatures.includes(computedHash)
-    if (!isValid) return false
+    if (!webhookSignatures.includes(computedHash)) return false
   }
 
-  return isValid
+  return true
 }
