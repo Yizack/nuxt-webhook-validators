@@ -41,3 +41,8 @@ export const verifyPublicSignature = async (
   const result = await subtle.verify(algorithm.name, key, webhookSignatureBuffer, encoder.encode(payload))
   return result
 }
+
+export const verifyBasicAuth = (header: string, username: string, password: string) => {
+  const result = `Basic ${Buffer.from(`${username}:${password}`).toString('base64')}`
+  return header === result
+}
