@@ -1,6 +1,29 @@
 # Changelog
 
 
+## v0.2.12
+
+[compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.11...v0.2.12)
+
+### 🚀 Enhancements
+
+- Add Docusign webhook validator ([#23](https://github.com/Yizack/nuxt-webhook-validators/pull/23))
+
+### 🏡 Chore
+
+- **config:** Add flexible webhook config validation ([3ef54fb](https://github.com/Yizack/nuxt-webhook-validators/commit/3ef54fb))
+- **playground:** Remove placeholder webhook runtimeConfig ([a953eea](https://github.com/Yizack/nuxt-webhook-validators/commit/a953eea))
+- Update all deps ([e164128](https://github.com/Yizack/nuxt-webhook-validators/commit/e164128))
+
+### 🤖 CI
+
+- Drop corepack, migrate to `pnpm/setup@v2` ([2b6a4ee](https://github.com/Yizack/nuxt-webhook-validators/commit/2b6a4ee))
+
+### ❤️ Contributors
+
+- Yizack Rangel ([@Yizack](https://github.com/Yizack))
+- Ahmed Rangel ([@ahmedrangel](https://github.com/ahmedrangel))
+
 ## v0.2.11
 
 [compare changes](https://github.com/Yizack/nuxt-webhook-validators/compare/v0.2.10...v0.2.11)
